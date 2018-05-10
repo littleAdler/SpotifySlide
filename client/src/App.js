@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import './App.css';
+import { Button } from 'reactstrap';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
@@ -113,8 +115,6 @@ class App extends Component {
   //GETS THE TRACK NAMES FROM PLAYLIST'S AND COMBINE THEM WITH THE CORRESPONDING PLAYLIST NAME IN 'playlistComparisonData'
   //NOTE: each playlist and its tracks are stored in 1 dimension of a 2 dimensional array, where the first element is the
         //playlist name, followed by the tracks in the playlist. So it stands to reason that each dimensions size is the 'playlist's length+1'
-///////////////CHCHCHCHCHCHCHCHANFHGELRGsgd
-
 
   getTrackData() {
 
@@ -144,7 +144,6 @@ class App extends Component {
               });
 
       }
-
 
       //console.log("Comparison Data: " + compData);
 
@@ -206,26 +205,9 @@ class App extends Component {
   //TODO: Automate the slide display process
   //TODO: Change track display automatically by looking at the song duration or when the skip button is pressed
 
+/* OLD RENDER CODE:
 
-
-
-
-  render() {
-
-    return (
-      <div className="App">
-        <a href='http://localhost:8888' > Login to Spotify </a>
-
-          <div id="songName"></div>
-          <img id="image" style={{ height: 150 }}></img>
-          <div id="slide"></div>
-          <div className="exe-container">
-
-
-          </div>
-
-
-          { this.state.loggedIn &&
+{ this.state.loggedIn &&
           <button onClick={() => this.getNowPlaying()}>
             Check Now Playing
           </button>
@@ -255,13 +237,42 @@ class App extends Component {
           </button>
           }
 
-          { this.state.loggedIn &&
-          <button onClick={() => this.automate()}>
+
+ */
+
+
+
+  render() {
+
+    return (
+
+
+      <div className="App">
+
+        <Button outline color="success" href='http://localhost:8888' > Login to Spotify </Button>
+
+          <div>
+              <font id= "songName" face="impact"></font>
+          </div>
+
+          <img id="image" style={{ height: 150 }}></img>
+
+          <div>
+              <font id="slide" face="impact"></font>
+          </div>
+          <div className="exe-container">
+
+          </div>
+          {this.state.loggedIn &&
+          <Button outline color="primary" onClick={() => this.automate()}>
               Automate
-          </button>
+          </Button>
           }
 
+
+
       </div>
+
     );
   }
 }
