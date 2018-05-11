@@ -28,6 +28,41 @@
 }
 
 
-div, button {
+#automate{
+  position: absolute;
+  left: 40px;
+  top: 335px;
   margin: 10px;
+}
+#image{
+  border-radius: 50%;
+  position: absolute;
+  left: 94px;
+  top: 175px;
+}
+#slide{
+  color: white;
+  position: absolute;
+  left: 170px;
+  top: 350px;
+}
+#songName{
+  color: whitesmoke;
+  position: absolute;
+  left: 60px;
+  top: 120px;
+}
+#gif{
+  border-radius: 20%;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  height: 300px;
+  width: 300px;
+;
+}
+#slideshow{
+  position: absolute;
+  left: 350px;
+  top: 10px;
 }
