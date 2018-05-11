@@ -63,11 +63,11 @@ class App extends Component {
                 this.state.artAlbum = response.item.album.images[0].url;
 
                 //Send data to the corresponding html divisions
-                document.getElementById("songName").innerHTML = this.state.songName;
+                document.getElementById("songName").innerHTML = "\""+this.state.songName+"\"";
                 document.getElementById("image").src = this.state.artAlbum;
 
-                console.log(this.state.songName);
-                console.log(this.state.artAlbum);
+               // console.log(this.state.songName);
+                //console.log(this.state.artAlbum);
 
             });
 
@@ -89,7 +89,7 @@ class App extends Component {
                  playNames.push(element.name);
               });
               this.playNames = playNames;
-              console.log('Playlist Names: ' + this.playNames);
+              //console.log('Playlist Names: ' + this.playNames);
 
               //Store playlist IDs and output to console
               let playIDs = [];
@@ -97,7 +97,7 @@ class App extends Component {
                   playIDs.push(element.id);
               });
               this.state.playIDs = playIDs;
-              console.log('Playlist IDs: ' + this.state.playIDs);
+             // console.log('Playlist IDs: ' + this.state.playIDs);
 
 
               //CHECK A SPECIFIC PLAYLIST NAME OR ID:
@@ -118,8 +118,8 @@ class App extends Component {
 
   getTrackData() {
 
-     console.log("playlist ID: " + this.state.playIDs[0]);
-     console.log("user ID: " + "mspouge");
+     //console.log("playlist ID: " + this.state.playIDs[0]);
+     //console.log("user ID: " + "mspouge");
       let compData = [];
       for(let i=0; i<3 ; i++) {
           spotifyApi.getPlaylistTracks("mspouge", this.state.playIDs[i])
@@ -139,7 +139,7 @@ class App extends Component {
 
                   compData[i]=[this.playNames[i],this.state.playlistTracks.length, trackNames]; //compData has the first element as the playlist name and the rest are the track names
                   this.state.playlistComparisonData = compData; //store info globally in the state object
-                  console.log("Comparison Data: " + this.state.playlistComparisonData);
+                  //console.log("Comparison Data: " + this.state.playlistComparisonData);
 
               });
 
@@ -158,25 +158,25 @@ class App extends Component {
 
   displaySlide(){
       let slide ='';
-      console.log("OUTPUT: .........................");
-      console.log("Currently Playing: " + this.state.songName);
+      //console.log("OUTPUT: .........................");
+      //console.log("Currently Playing: " + this.state.songName);
 
       for(let j=0; j<3 ; j++) {
-          console.log("PLAYLIST SONGS: ");
+          //console.log("PLAYLIST SONGS: ");
           for (let i = 0; i < this.state.playlistComparisonData[j][1]; i++) {
 
-              console.log(this.state.playlistComparisonData[j][2][i])
+              //console.log(this.state.playlistComparisonData[j][2][i])
               //console.log("Current Playing:"+this.state.songName)
               if(this.state.playlistComparisonData[j][2][i]===this.state.songName){
                   slide=this.state.playlistComparisonData[j][0]; //contains playlist name
                   this.state.slide=slide;
-                  console.log("Slide: "+slide);
+                  //console.log("Slide: "+slide);
                   break;
               }else{
-                  slide='Not Part of a Required Playlist';
+                  slide='¯\\_(ツ)_/¯';
               }
           }
-          if(slide!=='' && slide!=='Not Part of a Required Playlist'){
+          if(slide!=='' && slide!=='¯\\_(ツ)_/¯'){
               break;
           }
       }
@@ -188,10 +188,9 @@ class App extends Component {
       this.interval = setInterval(() => this.getPlaylistData(),2000);
       this.interval = setInterval(() => this.getTrackData(),3000);
       this.interval = setInterval(() => this.displaySlide(),4000);
-
+      console.log(document.getElementsByClassName("goog-menuitem goog-option goog-option-selected"));
       //this.displaySlide();
   }
-
 
 
       /*
@@ -248,28 +247,34 @@ class App extends Component {
 
 
       <div className="App">
-
-        <Button outline color="success" href='http://localhost:8888' > Login to Spotify </Button>
-
-          <div>
+          <img id="gif"src="https://i.imgur.com/8YsAmq3.gif"></img>
+          {!this.state.loggedIn &&
+              <Button outline color="success" href='http://localhost:8888'>Login to Spotify </Button>
+          }
+          <div id="songName">
               <font id= "songName" face="impact"></font>
           </div>
 
+
           <img id="image" style={{ height: 150 }}></img>
 
-          <div>
+
+
+          <div id="slide">
               <font id="slide" face="impact"></font>
           </div>
+
           <div className="exe-container">
 
           </div>
           {this.state.loggedIn &&
-          <Button outline color="primary" onClick={() => this.automate()}>
+          <Button outline color="primary" id="automate" onClick={() => this.automate()}>
               Automate
           </Button>
           }
-
-
+          {this.state.loggedIn &&
+          <iframe id="slideshow" src="https://docs.google.com/presentation/d/e/2PACX-1vSt947_Jgp7hkxZaAOPz9z3Rtba6QBoBlZ9lucta01sYdWvxAkCXN9lH_epZMQPneLLP3OsvmgBR1qQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1000" height="590" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+          }
 
       </div>
 
