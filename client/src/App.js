@@ -188,7 +188,11 @@ class App extends Component {
       this.interval = setInterval(() => this.getPlaylistData(),2000);
       this.interval = setInterval(() => this.getTrackData(),3000);
       this.interval = setInterval(() => this.displaySlide(),4000);
-      console.log(document.getElementsByClassName("goog-menuitem goog-option goog-option-selected"));
+     // this.interval = setInterval(() => this.quickstart(),8000);
+
+
+
+      //console.log(document.getElementsByClassName("goog-menuitem goog-option goog-option-selected"));
       //this.displaySlide();
   }
 
@@ -272,6 +276,7 @@ class App extends Component {
               Automate
           </Button>
           }
+
           {this.state.loggedIn &&
           <iframe id="slideshow" src="https://docs.google.com/presentation/d/e/2PACX-1vSt947_Jgp7hkxZaAOPz9z3Rtba6QBoBlZ9lucta01sYdWvxAkCXN9lH_epZMQPneLLP3OsvmgBR1qQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1000" height="590" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
           }
@@ -280,6 +285,8 @@ class App extends Component {
 
     );
   }
+
+
 }
 
 export default App;

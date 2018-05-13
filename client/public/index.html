@@ -41,6 +41,16 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
+
+    <iframe id="slideshow" src="https://docs.google.com/presentation/d/e/2PACX-1vSt947_Jgp7hkxZaAOPz9z3Rtba6QBoBlZ9lucta01sYdWvxAkCXN9lH_epZMQPneLLP3OsvmgBR1qQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1000" height="590" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     -->
+    <script>
+        //Refreshing the iframe so it matches the first slide on the actual project:
+
+        //When the api is called it moves the desired slide into the first index of the presentation, and then the iframe
+        //refreshes, displaying that slide on the embedded google slides project on the localhost (web app).
+
+        setInterval(function(){document.getElementById('slideshow').src += ''},5000);
+    </script>
   </body>
 </html>
