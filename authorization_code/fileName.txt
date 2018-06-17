@@ -1,0 +1,746 @@
+SLIDES
+Listening on 8888
+{ country: 'CA',
+  display_name: 'Michael Spouge',
+  email: 'mspouge@alumni.ubc.ca',
+  external_urls: { spotify: 'https://open.spotify.com/user/mspouge' },
+  followers: { href: null, total: 12 },
+  href: 'https://api.spotify.com/v1/users/mspouge',
+  id: 'mspouge',
+  images: 
+   [ { height: null,
+       url: 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=618341831583940&height=200&width=200&ext=1529008012&hash=AeRlfFen_xp4wM2F',
+       width: null } ],
+  product: 'premium',
+  type: 'user',
+  uri: 'spotify:user:mspouge' }
+Currently Playing: Ghetto in Paradise
+RES: {
+  "href" : "https://api.spotify.com/v1/users/mspouge/playlists?offset=0&limit=20",
+  "items" : [ {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/0tyUbGI9tu2qC44xYvouuv"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/0tyUbGI9tu2qC44xYvouuv",
+    "id" : "0tyUbGI9tu2qC44xYvouuv",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/5ac6d74eb44e6f6730610c53b3f2a900cc6982d8e7f61a1b6e21c7f62e95a976bd26f5cf1af901b7e8737141126a1da6af6aa93025021910422455ffecfe86fd1916b2e9a89412985b17935b2b13bc16",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/5ac6d74eb44e6f6730610c53b3f2a900cc6982d8e7f61a1b6e21c7f62e95a976bd26f5cf1af901b7e8737141126a1da6af6aa93025021910422455ffecfe86fd1916b2e9a89412985b17935b2b13bc16",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/5ac6d74eb44e6f6730610c53b3f2a900cc6982d8e7f61a1b6e21c7f62e95a976bd26f5cf1af901b7e8737141126a1da6af6aa93025021910422455ffecfe86fd1916b2e9a89412985b17935b2b13bc16",
+      "width" : 60
+    } ],
+    "name" : "Test 3",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "5LDj5jpXerYpA9buKgvDRtpy5/tGADmeOD6OGsm81EVMTefszamrBTl+k/5O+OFK",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/0tyUbGI9tu2qC44xYvouuv/tracks",
+      "total" : 4
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:0tyUbGI9tu2qC44xYvouuv"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/32OsHcshivz8Unz9ET1xv2"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/32OsHcshivz8Unz9ET1xv2",
+    "id" : "32OsHcshivz8Unz9ET1xv2",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/09d95c357ce2735a60878a3fb96b4e52c8da1e36",
+      "width" : 640
+    } ],
+    "name" : "Test 2",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "DKf9w18PKshseq3MYyUjLMlVI7ZgMVpRYHqqsU5M0/iuB0raM+0YsEwl3qJSlIYs",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/32OsHcshivz8Unz9ET1xv2/tracks",
+      "total" : 1
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:32OsHcshivz8Unz9ET1xv2"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/71V1OJbz9Fl1P2a943RlgQ"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/71V1OJbz9Fl1P2a943RlgQ",
+    "id" : "71V1OJbz9Fl1P2a943RlgQ",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/0fc67370e36c2454c8c9b1ecf0a3f869d8d34ea3",
+      "width" : 640
+    } ],
+    "name" : "Test 1",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "uBEObF2c3Y5Y9XkypYSGn7rjphIt/0tXFmY3A6MlHLHdEuIDHbhPfU7P56FOhOA1",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/71V1OJbz9Fl1P2a943RlgQ/tracks",
+      "total" : 2
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:71V1OJbz9Fl1P2a943RlgQ"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/7qSjnDya4TrcSWnBmsqQq9"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/7qSjnDya4TrcSWnBmsqQq9",
+    "id" : "7qSjnDya4TrcSWnBmsqQq9",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/5e751b7c7d85ff9d2236b1e7c961008e6ec7bff8",
+      "width" : 640
+    } ],
+    "name" : "Programming",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "PGMjJLxU+6cDzhjv9Omh6uCypqFuoR2N1m/W8ow0dI959oVqlQF6xDzMsQjaf7Qj",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/7qSjnDya4TrcSWnBmsqQq9/tracks",
+      "total" : 2
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:7qSjnDya4TrcSWnBmsqQq9"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/4uadgx0GtaEFukGmgWkcib"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/4uadgx0GtaEFukGmgWkcib",
+    "id" : "4uadgx0GtaEFukGmgWkcib",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/4db5fcf2512e5a75b1c10266e1c76235dd8d044182794771fba86cf96290c4fa97772995665ff70da3b8db643b3d10365123c5719ff6a6f5c9d80a40edafd44a8302f9d1ec6f95c9b4d59ce4c1be8434",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/4db5fcf2512e5a75b1c10266e1c76235dd8d044182794771fba86cf96290c4fa97772995665ff70da3b8db643b3d10365123c5719ff6a6f5c9d80a40edafd44a8302f9d1ec6f95c9b4d59ce4c1be8434",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/4db5fcf2512e5a75b1c10266e1c76235dd8d044182794771fba86cf96290c4fa97772995665ff70da3b8db643b3d10365123c5719ff6a6f5c9d80a40edafd44a8302f9d1ec6f95c9b4d59ce4c1be8434",
+      "width" : 60
+    } ],
+    "name" : "Jamming",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "V0uUF4Yytsc4EQDN6PnI8tyWNg2WfN7KXmoPeadeCCQTKkh1b7XS4CE7qirA9JBS",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/4uadgx0GtaEFukGmgWkcib/tracks",
+      "total" : 12
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:4uadgx0GtaEFukGmgWkcib"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/spotify/playlist/37i9dQZF1DX4qKWGR9z0LI"
+    },
+    "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DX4qKWGR9z0LI",
+    "id" : "37i9dQZF1DX4qKWGR9z0LI",
+    "images" : [ {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/f335a4ac0b8a451798d135d60704e59b11632326",
+      "width" : 300
+    } ],
+    "name" : "Salsa Nation",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "q746EhRYoHocGQ6GiObcWISkxkLoYgE8z8IIapX6FgN1LbargpZI/SfLqX+JTYct50fCweh3M5c=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DX4qKWGR9z0LI/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:spotify:playlist:37i9dQZF1DX4qKWGR9z0LI"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/pcnaimad/playlist/7vI1McngAZMfcoT5xnYBR0"
+    },
+    "href" : "https://api.spotify.com/v1/users/pcnaimad/playlists/7vI1McngAZMfcoT5xnYBR0",
+    "id" : "7vI1McngAZMfcoT5xnYBR0",
+    "images" : [ {
+      "height" : null,
+      "url" : "https://pl.scdn.co/images/pl/default/d1ddb701325b027ae6f56f702622ee2f31678aba",
+      "width" : null
+    } ],
+    "name" : "COSTA RICA TOP 50",
+    "owner" : {
+      "display_name" : "Top Playlists",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/pcnaimad"
+      },
+      "href" : "https://api.spotify.com/v1/users/pcnaimad",
+      "id" : "pcnaimad",
+      "type" : "user",
+      "uri" : "spotify:user:pcnaimad"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "8dROsE5nyiEAJ00fpjDU8p4EXaFWpuHZRbYS3zYl1+pOdAt97MKyocu33ftUEXwQ",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/pcnaimad/playlists/7vI1McngAZMfcoT5xnYBR0/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:pcnaimad:playlist:7vI1McngAZMfcoT5xnYBR0"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/3hSUnHSDL19cbs6OCiajEa"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/3hSUnHSDL19cbs6OCiajEa",
+    "id" : "3hSUnHSDL19cbs6OCiajEa",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/435e76a10b17c1d1687ff01483f585aaab8cb00057d0488448c8f0401e4f804d733af4f3f7b3c9ed6c2344165df1579d9d5ea796577144fb68ac3b9f8e4af868875b23d1662f8f7e9ae2aeae8adba7aa",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/435e76a10b17c1d1687ff01483f585aaab8cb00057d0488448c8f0401e4f804d733af4f3f7b3c9ed6c2344165df1579d9d5ea796577144fb68ac3b9f8e4af868875b23d1662f8f7e9ae2aeae8adba7aa",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/435e76a10b17c1d1687ff01483f585aaab8cb00057d0488448c8f0401e4f804d733af4f3f7b3c9ed6c2344165df1579d9d5ea796577144fb68ac3b9f8e4af868875b23d1662f8f7e9ae2aeae8adba7aa",
+      "width" : 60
+    } ],
+    "name" : "instruction ",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "NRaacmLh5hHtVIHHbur5p8HlsZ/p7IXlnsh7AEdO6q6iX26JwGxePGHu9ro19IqC",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/3hSUnHSDL19cbs6OCiajEa/tracks",
+      "total" : 11
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:3hSUnHSDL19cbs6OCiajEa"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/spotify/playlist/37i9dQZF1DXci7j0DJQgGp"
+    },
+    "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DXci7j0DJQgGp",
+    "id" : "37i9dQZF1DXci7j0DJQgGp",
+    "images" : [ {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/41b7b6fa70f61203e9b4343caf10a88c73861185",
+      "width" : 300
+    } ],
+    "name" : "Hanging Out and Relaxing",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "L7F7LXJqpIfSx+EWtgUQsVGKU85deBxyV+WfFm1JynoVIeetIjXs0h6DIQYRFAy8Lls5NACknEg=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DXci7j0DJQgGp/tracks",
+      "total" : 100
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:spotify:playlist:37i9dQZF1DXci7j0DJQgGp"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/4JkC76xDHdo5EQy93eV6mL"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/4JkC76xDHdo5EQy93eV6mL",
+    "id" : "4JkC76xDHdo5EQy93eV6mL",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/435e76a10b17c1d1687ff01483f585aaab8cb00051d52c827f65a3f90db2adbd3c387edc3d249f816c2344165df1579d9d5ea796577144fb68ac3b9fac2fe91792366065c5f1a5e20c6e9ca847cb4b35",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/435e76a10b17c1d1687ff01483f585aaab8cb00051d52c827f65a3f90db2adbd3c387edc3d249f816c2344165df1579d9d5ea796577144fb68ac3b9fac2fe91792366065c5f1a5e20c6e9ca847cb4b35",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/435e76a10b17c1d1687ff01483f585aaab8cb00051d52c827f65a3f90db2adbd3c387edc3d249f816c2344165df1579d9d5ea796577144fb68ac3b9fac2fe91792366065c5f1a5e20c6e9ca847cb4b35",
+      "width" : 60
+    } ],
+    "name" : "campfire",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "VEH//wQramhWh854aA77JEGJlVlJC2RHW1tR7vyVVPw8vnZeoTv5qNYwt6EvEydL",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/4JkC76xDHdo5EQy93eV6mL/tracks",
+      "total" : 15
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:4JkC76xDHdo5EQy93eV6mL"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/0zJbHSUjZZczmJtuncsKEo"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/0zJbHSUjZZczmJtuncsKEo",
+    "id" : "0zJbHSUjZZczmJtuncsKEo",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/d9cedc03fcc8430a4d2db3c32a6cea2cde6bd737",
+      "width" : 640
+    } ],
+    "name" : "Slow Dancing",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "7oD1pAz8sogZthb0qgyQqpdQQTddNrYnmS514O3wtwkCF4w2l7irmvr8YOEjZsc0",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/0zJbHSUjZZczmJtuncsKEo/tracks",
+      "total" : 1
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:0zJbHSUjZZczmJtuncsKEo"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/0Qfb9FkSlpLJFC90KHK49s"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/0Qfb9FkSlpLJFC90KHK49s",
+    "id" : "0Qfb9FkSlpLJFC90KHK49s",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/4b2d6adf523ac55d209f629ef80d2e5383679ec851d52c827f65a3f90db2adbd3c387edc3d249f8157d0488448c8f0401e4f804d733af4f3f7b3c9eda62039f3b8016b86a3cf684066792ab6ff6a3521",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/4b2d6adf523ac55d209f629ef80d2e5383679ec851d52c827f65a3f90db2adbd3c387edc3d249f8157d0488448c8f0401e4f804d733af4f3f7b3c9eda62039f3b8016b86a3cf684066792ab6ff6a3521",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/4b2d6adf523ac55d209f629ef80d2e5383679ec851d52c827f65a3f90db2adbd3c387edc3d249f8157d0488448c8f0401e4f804d733af4f3f7b3c9eda62039f3b8016b86a3cf684066792ab6ff6a3521",
+      "width" : 60
+    } ],
+    "name" : "<p>",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "DTPIyRpm6qZ05Zt09gp9OpTGo03AeKrOJ29lEUbMgeZjNQAo6rRIkOaPTK7Av79c",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/0Qfb9FkSlpLJFC90KHK49s/tracks",
+      "total" : 4
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:0Qfb9FkSlpLJFC90KHK49s"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/4LPjnGQtUBz9NV23F5xQWL"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/4LPjnGQtUBz9NV23F5xQWL",
+    "id" : "4LPjnGQtUBz9NV23F5xQWL",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/419e392fb9873bbb3eff0f4feccfe177840e13175278fd46b84c604feb8bb84162795f516230d89d63d789f6c6cfc74e4057c766b74b27bf778dad606f3483e372bbb81cddb5fab16ebf50d2ac5009b9",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/419e392fb9873bbb3eff0f4feccfe177840e13175278fd46b84c604feb8bb84162795f516230d89d63d789f6c6cfc74e4057c766b74b27bf778dad606f3483e372bbb81cddb5fab16ebf50d2ac5009b9",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/419e392fb9873bbb3eff0f4feccfe177840e13175278fd46b84c604feb8bb84162795f516230d89d63d789f6c6cfc74e4057c766b74b27bf778dad606f3483e372bbb81cddb5fab16ebf50d2ac5009b9",
+      "width" : 60
+    } ],
+    "name" : "<body>HouseParty</body>",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "ref5GDgKrOuhyfK7en5cXqpMidyqPeklFyGch8Z7ULBtPBa0oEpoGoN/jcaiVh37",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/4LPjnGQtUBz9NV23F5xQWL/tracks",
+      "total" : 50
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:4LPjnGQtUBz9NV23F5xQWL"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/2bN7SXP5UAneQi39oY4tQ2"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/2bN7SXP5UAneQi39oY4tQ2",
+    "id" : "2bN7SXP5UAneQi39oY4tQ2",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/476a084f4a62ada96b54c3aae9bbf59311edc5ad4958cc05d2d21ffb90813bb04246ac7b5c810f42508cb07cc7a394d2d5876b0729cfa7075dc2caa8d7bb33800d66ee122b401117284bbcb174b8e26a",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/476a084f4a62ada96b54c3aae9bbf59311edc5ad4958cc05d2d21ffb90813bb04246ac7b5c810f42508cb07cc7a394d2d5876b0729cfa7075dc2caa8d7bb33800d66ee122b401117284bbcb174b8e26a",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/476a084f4a62ada96b54c3aae9bbf59311edc5ad4958cc05d2d21ffb90813bb04246ac7b5c810f42508cb07cc7a394d2d5876b0729cfa7075dc2caa8d7bb33800d66ee122b401117284bbcb174b8e26a",
+      "width" : 60
+    } ],
+    "name" : "workout",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "lSdyO6k0n1gvOnHi+GB54fC07HW6QCx2VJZsp2DHhb/btMnkc867qaD7XPsygR1P",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/2bN7SXP5UAneQi39oY4tQ2/tracks",
+      "total" : 15
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:2bN7SXP5UAneQi39oY4tQ2"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/spotify/playlist/37i9dQZF1DWU2jh5S7FvXl"
+    },
+    "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DWU2jh5S7FvXl",
+    "id" : "37i9dQZF1DWU2jh5S7FvXl",
+    "images" : [ {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/493a7aef997db3029d7c19579d18bca845615190",
+      "width" : 300
+    } ],
+    "name" : "Dance Favourites",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "oFXgEAk5OdpSXXnATH7CVKU0GKCUQajkh8ypKL9sf3nwbxfeulYSjh6DIQYRFAy8Lls5NACknEg=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DWU2jh5S7FvXl/tracks",
+      "total" : 101
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:spotify:playlist:37i9dQZF1DWU2jh5S7FvXl"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/1FP1bpZi0No0EuSBgRJrdK"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/1FP1bpZi0No0EuSBgRJrdK",
+    "id" : "1FP1bpZi0No0EuSBgRJrdK",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/2ad787781dc5ca837145b9b54a9275b9922d37a6435e76a10b17c1d1687ff01483f585aaab8cb000a127015a2d9095c137165af57f19fdcfdf2bf8a7dfa9264c5427a0dfcfdf99a6592d608b42420e84",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/2ad787781dc5ca837145b9b54a9275b9922d37a6435e76a10b17c1d1687ff01483f585aaab8cb000a127015a2d9095c137165af57f19fdcfdf2bf8a7dfa9264c5427a0dfcfdf99a6592d608b42420e84",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/2ad787781dc5ca837145b9b54a9275b9922d37a6435e76a10b17c1d1687ff01483f585aaab8cb000a127015a2d9095c137165af57f19fdcfdf2bf8a7dfa9264c5427a0dfcfdf99a6592d608b42420e84",
+      "width" : 60
+    } ],
+    "name" : "list",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "PWBmM3S1zOlwycNYczUpCiCcldbv/xF0grhSPsi9xDrJL82AhQo9+v1jkbS3rTEU",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/1FP1bpZi0No0EuSBgRJrdK/tracks",
+      "total" : 8
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:1FP1bpZi0No0EuSBgRJrdK"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/2s1rr7hnrQkbLKnFZ3a2YL"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/2s1rr7hnrQkbLKnFZ3a2YL",
+    "id" : "2s1rr7hnrQkbLKnFZ3a2YL",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/3a9694930e367236d22dc3059cd81df08a767769",
+      "width" : 640
+    } ],
+    "name" : "old stuff",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "rvFsf0LGLjaKMPffwRtF7wPrkkGr/EKmX/43L8bBsro/cCF/m4OuqHTpPS9V8En1",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/2s1rr7hnrQkbLKnFZ3a2YL/tracks",
+      "total" : 2
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:2s1rr7hnrQkbLKnFZ3a2YL"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/2xWFfS7F1Ezrz8nJOoNzOO"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/2xWFfS7F1Ezrz8nJOoNzOO",
+    "id" : "2xWFfS7F1Ezrz8nJOoNzOO",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/5095db66ebd8643106a2f520d9733cbff46810159101d06c8eb64c822cf29939569a387ed0f19620e9e99159c132df6f543079f7878fd167e575957bfde0e96aeda9e1d6b7cdc33c835f949c2755328e",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/5095db66ebd8643106a2f520d9733cbff46810159101d06c8eb64c822cf29939569a387ed0f19620e9e99159c132df6f543079f7878fd167e575957bfde0e96aeda9e1d6b7cdc33c835f949c2755328e",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/5095db66ebd8643106a2f520d9733cbff46810159101d06c8eb64c822cf29939569a387ed0f19620e9e99159c132df6f543079f7878fd167e575957bfde0e96aeda9e1d6b7cdc33c835f949c2755328e",
+      "width" : 60
+    } ],
+    "name" : "new Blues",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "OUnKOLPH6W8eqFfIdJE51H90qC06FTextvoMFLG36TGn8OZ991TkrXQCGKfKzdtM",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/2xWFfS7F1Ezrz8nJOoNzOO/tracks",
+      "total" : 4
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:2xWFfS7F1Ezrz8nJOoNzOO"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/mspouge/playlist/70ELBtECZrPBzDM6mDcMGj"
+    },
+    "href" : "https://api.spotify.com/v1/users/mspouge/playlists/70ELBtECZrPBzDM6mDcMGj",
+    "id" : "70ELBtECZrPBzDM6mDcMGj",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://mosaic.scdn.co/640/04a43069c8316236ac7074d5e497ae5cd65eabed9211b2d712225daccd54e84175cef9be068d2ed8dd50cf172806b09c1596579d8e921eb868c4d17ce33173170aaa509addd38f70de3ed3c0fac1096e",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://mosaic.scdn.co/300/04a43069c8316236ac7074d5e497ae5cd65eabed9211b2d712225daccd54e84175cef9be068d2ed8dd50cf172806b09c1596579d8e921eb868c4d17ce33173170aaa509addd38f70de3ed3c0fac1096e",
+      "width" : 300
+    }, {
+      "height" : 60,
+      "url" : "https://mosaic.scdn.co/60/04a43069c8316236ac7074d5e497ae5cd65eabed9211b2d712225daccd54e84175cef9be068d2ed8dd50cf172806b09c1596579d8e921eb868c4d17ce33173170aaa509addd38f70de3ed3c0fac1096e",
+      "width" : 60
+    } ],
+    "name" : "old days",
+    "owner" : {
+      "display_name" : "Michael Spouge",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/mspouge"
+      },
+      "href" : "https://api.spotify.com/v1/users/mspouge",
+      "id" : "mspouge",
+      "type" : "user",
+      "uri" : "spotify:user:mspouge"
+    },
+    "primary_color" : null,
+    "public" : true,
+    "snapshot_id" : "FEbubax73pvhiEnKt3w70ja+7b8TICLjT9hp8ZaeRxGiwAxPDhLHIkIOIl90i+xQ",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/mspouge/playlists/70ELBtECZrPBzDM6mDcMGj/tracks",
+      "total" : 18
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:mspouge:playlist:70ELBtECZrPBzDM6mDcMGj"
+  }, {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/user/spotify/playlist/37i9dQZF1DX35oM5SPECmN"
+    },
+    "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DX35oM5SPECmN",
+    "id" : "37i9dQZF1DX35oM5SPECmN",
+    "images" : [ {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/5e5515594b7554fe992c49c0259bcd2b8d992930",
+      "width" : 300
+    } ],
+    "name" : "Run Wild",
+    "owner" : {
+      "display_name" : "Spotify",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/user/spotify"
+      },
+      "href" : "https://api.spotify.com/v1/users/spotify",
+      "id" : "spotify",
+      "type" : "user",
+      "uri" : "spotify:user:spotify"
+    },
+    "primary_color" : null,
+    "public" : false,
+    "snapshot_id" : "n0oljfRxOxwKrHPiA3iXY6+BBCb2b6iM61dKB7H01C3TAbGmTqJgrB6DIQYRFAy8Lls5NACknEg=",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DX35oM5SPECmN/tracks",
+      "total" : 82
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:spotify:playlist:37i9dQZF1DX35oM5SPECmN"
+  } ],
+  "limit" : 20,
+  "next" : "https://api.spotify.com/v1/users/mspouge/playlists?offset=20&limit=20",
+  "offset" : 0,
+  "previous" : null,
+  "total" : 49
+}

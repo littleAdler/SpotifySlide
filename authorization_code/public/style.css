@@ -1,0 +1,26 @@
+#login{
+  text-align: center;
+}
+#login-welcome{
+  color: green;
+}
+#login-message{
+  color: orange;
+}
+#push{
+  position: absolute;
+  left: 230px;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+#speaker{
+  height: 25px;
+  width: 25px;
+}
+#slideFrame{
+  position: absolute;
+  left: 2px;
+  top:0px;
+
+}
