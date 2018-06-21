@@ -38,17 +38,18 @@
             <div class="wrapper">
                 <!-- Sidebar Holder -->
                 <div id="content">
-                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSt947_Jgp7hkxZaAOPz9z3Rtba6QBoBlZ9lucta01sYdWvxAkCXN9lH_epZMQPneLLP3OsvmgBR1qQ/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1364" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTq90LyDhvfGsScmsPGkfpSyp4PRcR4kolqEjCfc5URJJxlrFgG1E2kH3ZrJ-JAaTrn9MPv9Lhjhvre/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1364" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
                 </div>
 
                 <nav id="sidebar">
                     <div class="sidebar-header">
-                        <h3>Info</h3>
+                        <h3>Logo</h3>
                         <button type="button" class="btn btn-default" id="push" ><img id="speaker" src="https://png.icons8.com/metro/1600/speaker.png"/></button>
                     </div>
 
                     <ul id = "comps" class="list-unstyled components">
-                        <p>Spotify User Content</p>
+
                         <div id="user-profile">
                         </div>
 
@@ -76,11 +77,12 @@
 
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <p>Logged in as {{display_name}}</p>
+      <p>Current Profile:</p>
+      <p><img id="profilePic" class="media-object" width="50" src="{{images.0.url}}" /> {{display_name}}</p>
       <div class="media">
-        <div class="pull-left">
-          <img class="media-object" width="50" src="{{images.0.url}}" />
-        </div>
+
+
+
         <div class="media-body">
           <dl class="dl-horizontal">
             <!--
@@ -98,11 +100,11 @@
     </script>
 
     <script id="playback-template" type="text/x-handlebars-template">
-      <h2>Playback Info </h2>
-      <img class="media-object" width="150" src="{{item.album.images.0.url}}"/>
-      <dl class="dl-horizontal">
-        <dt>Currently Playing</dt><dd>{{item.name}}</dd>
-        <dt>Duration</dt><dd>{{item.duration_ms}}</dd>
+      <h2 id="playbackTitle">Playback Info </h2>
+      <img id="albumArt" class="media-object" width="150" src="{{item.album.images.0.url}}"/>
+      <dl id ="playbackInfo" class="dl-horizontal">
+        <dt >Currently Playing</dt><dd>{{item.name}}</dd>
+        <dt >Duration</dt><dd>{{item.duration_ms}}</dd>
         <!-- <dt>Album Art</dt><dd><a href="{{item.album.images.0.url}}">{{item.album.images.0.url}}</a></dd>-->
       </dl>
     </script>
@@ -267,7 +269,7 @@
         //    }
         //  });
 
-          //// TODO: return the current playlist the song playback belongs to [for export to slides API]
+
 
 
 
@@ -304,11 +306,23 @@
             $('#push').on('click',function () {
                 $('#sidebar').toggleClass('active');
             });
+            $(document).on("mousemove", function(event){
+              //console.log(event.pageX);
+              //que's up a bunch of shows so the hide doesnt work
+
+              if(event.pageX<250){
+                console.log('trigger');
+                $('#push').show('linear');
+              }else{
+                $('#push').hide('linear');
+              }
+            });
+            /*
             $('#comps').hover(function(){
               $('#push').toggle();
             },function(){
               $('#push').toggle();
-            });
+            });*/
         });
     </script>
 

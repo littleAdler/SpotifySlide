@@ -24,3 +24,22 @@
   top:0px;
 
 }
+#profilePic{
+
+  padding-left: 20px;
+}
+#albumArt{
+  border-radius: 30px;
+  position: relative;
+  left: 45px;
+  opacity: 0.5;
+}
+
+#playbackTitle{
+  color: #599aa0;
+}
+#playbackInfo{
+  color: #599aa0;
+  position: relative;
+  left: 50px;
+}

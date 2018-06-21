@@ -55,14 +55,21 @@ a, a:hover, a:focus {
 
 #sidebar {
     position: absolute;
-    left: -248px;
-    top:0px;
+    left: 1050px;
+    top: 80px;
 
     min-width: 250px;
     max-width: 250px;
-    background: #C7FEB6;
+    background: #353638;
     color: #010101;
     transition: all 0.3s;
+    border-radius: 10px;
+    border-bottom: 15px groove #336c72;
+  /*  border-right: 5px groove #4c5661;*/
+    border-top: 1px groove #336c72;
+
+
+
 }
 
 #sidebar.active {
@@ -70,28 +77,39 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #F0B53F;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
+    background: #468389;
+
+
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
-    /*border-bottom: 1px solid #47748b;*/
+    padding: 10px 0;
+
+    /*border-left: 5px solid black;*/
+  /*  border-right: 5px solid #4c5661;*/
+
 }
 
 #sidebar ul p {
     color: #fff;
-    padding: 10px;
+    padding: 0px;
+
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 1px;
     font-size: 1.1em;
     display: block;
+
 }
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
+    border-bottom: 5px solid #4c5661;
 }
 /*
 #sidebar ul li.active > a, a[aria-expanded="true"] {

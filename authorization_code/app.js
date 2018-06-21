@@ -47,7 +47,7 @@ app.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // your application requests authorization
-  var scope = 'user-read-private user-read-email user-read-currently-playing user-read-playback-state playlist-read-private';
+  var scope = 'user-read-private user-read-email user-read-currently-playing user-read-playback-state playlist-read-private playlist-read-collaborative';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -148,7 +148,7 @@ app.get('/callback', function(req, res) {
 
 
 
-              //console.log("PLAYLISTS: "+playlistArr);
+              console.log("PLAYLISTS: "+playlistArr);
             });
 
           });
@@ -303,16 +303,16 @@ function callSlidesAPI(spotifyPlaylist){
     //let testSlide='';
     if(spotifyPlaylist==='Update Test'){
         slideID = 'p';
-    }else if(spotifyPlaylist==='Test 3'){
-        slideID ='g5gevl';
-    }else if(spotifyPlaylist ==="Test 2"){
-        slideID = 'g39e58e82b0_0_135';
+    }else if(spotifyPlaylist==='Disco Waltz'){
+        slideID ='p1';
+    }else if(spotifyPlaylist ==="Latin Hustle"){
+        slideID = 'p2';
     }else if (spotifyPlaylist === "Test 1"){
         slideID = 'g5gevlh';
     }
 
     slides.presentations.batchUpdate({
-        presentationId: '14oeVyzsEVfbxteuGnHS8MYz7p0CgqeUxKyN-F6fDfOI',
+        presentationId: '1F7t4uUsk8Hk8RzyHVp-2uoeiXZg-evsFttWHJqBnSDY',
         "access_token": 'ya29.Glu6BQgGG4k0CNyFP-LmuUQzXXxkbc5KQrIaUXQsmzWtlZ5mZqosm3zUe2PVHH-RgLoZS3yAPLUad1KN394EPjuIYZM4iCLB2qMAC7xvAI3ZFoztVwY3gsr7ziOX',
         "resource": {
             "requests": [
