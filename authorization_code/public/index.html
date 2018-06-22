@@ -45,7 +45,7 @@
                 <nav id="sidebar">
                     <div class="sidebar-header">
                         <h3>Logo</h3>
-                        <button type="button" class="btn btn-default" id="push" ><img id="speaker" src="https://png.icons8.com/metro/1600/speaker.png"/></button>
+
                     </div>
 
                     <ul id = "comps" class="list-unstyled components">
@@ -107,6 +107,12 @@
         <dt >Duration</dt><dd>{{item.duration_ms}}</dd>
         <!-- <dt>Album Art</dt><dd><a href="{{item.album.images.0.url}}">{{item.album.images.0.url}}</a></dd>-->
       </dl>
+      <!--
+      <div id="myProgress">
+        <div id="myBar">10%</div>
+        <br>
+        <button onclick="move()">Click Me</button>
+      </div>-->
     </script>
 
 
@@ -300,37 +306,31 @@
       })();
 
     </script>
+
     <script type="text/javascript">
-        $(document).ready(function () {
 
-            $('#push').on('click',function () {
-                $('#sidebar').toggleClass('active');
-            });
-            $(document).on("mousemove", function(event){
-              //console.log(event.pageX);
-              //que's up a bunch of shows so the hide doesnt work
+    /*function move() {
+      var elem = document.getElementById("myBar");
+      var width = 10;
+      var id = setInterval(frame, 1000);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+        } else {
+          width++;
+          elem.style.width = width + '%';
+          elem.innerHTML = width * 1  + '%';
+        }
+      }
+    }*/
 
-              if(event.pageX<250){
-                console.log('trigger');
-                $('#push').show('linear');
-              }else{
-                $('#push').hide('linear');
-              }
-            });
-            /*
-            $('#comps').hover(function(){
-              $('#push').toggle();
-            },function(){
-              $('#push').toggle();
-            });*/
-        });
     </script>
 
     <script id="SlidesAPI">
     function refresh_iFrame(){
     document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
     }
-    setInterval(refresh_iFrame,4000);
+    setInterval(refresh_iFrame,6000);
 
     </script>
 

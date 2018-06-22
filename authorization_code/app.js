@@ -101,9 +101,9 @@ app.get('/callback', function(req, res) {
         };
 
         // use the access token to access the Spotify Web API
-        request.get(options, function(error, response, body) {
+        //request.get(options, function(error, response, body) {
           //console.log(body);
-        });
+        //});
 
         var options2 = {
           url: 'https://api.spotify.com/v1/me/player/currently-playing',
@@ -127,23 +127,29 @@ app.get('/callback', function(req, res) {
               //console.log("RES: "+ JSON.parse(body).items[0].name);
               let playlistArr = [''];
               response = JSON.parse(body);
-              for(let i =0; i<3;i++){
+              for(let i =0; i<8;i++){
                 playlistArr[i]=response.items[i].name;
+
                 var tracksReq={
                   url: response.items[i].tracks.href,
                   headers:{
                     'Authorization':'Bearer '+ access_token
                   }
                 }
+                request.get(tracksReq,function(err,res,body){
                 for(let j=0; j<response.items[i].tracks.total;j++){
-                  request.get(tracksReq,function(err,res,body){
+
+                    //console.log("Playlist: " + playlistArr[i] + " Total Items: "+response.items[i].tracks.total+" Song: " +JSON.parse(body).items[j].track.name);
+
+                    //console.log(response2);
                     if(JSON.parse(body).items[j].track.name===song_name){
                       console.log("Current Playlist: " + playlistArr[i]);
                       ///Call the Slides API in here (it will only run once b/c it only matches once)
                       callSlidesAPI(playlistArr[i]);
                     }
-                  });
                 }
+                });
+
               }
 
 
@@ -166,11 +172,6 @@ app.get('/callback', function(req, res) {
             'Authorization':'Bearer '+ access_token
           }
         }
-
-
-
-
-
 
 
         // we can also pass the token to the browser to make requests from there
@@ -304,11 +305,19 @@ function callSlidesAPI(spotifyPlaylist){
     if(spotifyPlaylist==='Update Test'){
         slideID = 'p';
     }else if(spotifyPlaylist==='Disco Waltz'){
-        slideID ='p1';
+        slideID = 'p1';
     }else if(spotifyPlaylist ==="Latin Hustle"){
         slideID = 'p2';
-    }else if (spotifyPlaylist === "Test 1"){
-        slideID = 'g5gevlh';
+    }else if (spotifyPlaylist === "Fox Trot"){
+        slideID = 'p4';
+    }else if (spotifyPlaylist === "Rumba"){
+        slideID = 'p5';
+    }else if (spotifyPlaylist === "Chacha"){
+        slideID = 'p6';
+    }else if (spotifyPlaylist === "Jitterbug"){
+        slideID = 'p7';
+    }else if (spotifyPlaylist === "Tango"){
+        slideID = 'p8';
     }
 
     slides.presentations.batchUpdate({

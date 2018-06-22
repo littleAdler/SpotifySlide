@@ -67,9 +67,10 @@ a, a:hover, a:focus {
     border-bottom: 15px groove #336c72;
   /*  border-right: 5px groove #4c5661;*/
     border-top: 1px groove #336c72;
-
-
-
+    opacity: 0.3;
+}
+#sidebar:hover{
+  opacity: 1;
 }
 
 #sidebar.active {
@@ -82,12 +83,14 @@ a, a:hover, a:focus {
     border-top-left-radius: 10px;
     padding: 10px;
     background: #468389;
+    opacity: 0.6;
 
 
 }
 
 #sidebar ul.components {
-    padding: 10px 0;
+    padding: 0px 0;
+
 
     /*border-left: 5px solid black;*/
   /*  border-right: 5px solid #4c5661;*/
@@ -126,7 +129,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
     content: '\e259';
     display: block;
     position: absolute;
-    right: 20px;
+    right: 10px;
     font-family: 'Glyphicons Halflings';
     font-size: 0.6em;
 }
