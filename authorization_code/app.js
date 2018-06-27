@@ -110,15 +110,10 @@ app.get('/callback', function(req, res) {
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
-        //TRYING SHIT
-
-
-        function callbackConsole(param){
-          console.log("Callback Returned: "+ param);
-        }
 
         function requestSongName(){
           let song_name='';
+          let holdSongName='';
           request.get(options2,function(err,res,body){
             console.log("Currently Playing: "+ body.item.name);
             song_name = body.item.name;
@@ -146,25 +141,19 @@ app.get('/callback', function(req, res) {
                       console.log("Current Playlist: " + playlistArr[i]);
                       ///Call the Slides API in here (it will only run once b/c it only matches once)
                       callSlidesAPI(playlistArr[i]);
+
                     }
+
                 }
+
                 });
-
               }
-
-
-
               console.log("PLAYLISTS: "+playlistArr);
             });
-
           });
-          //return song_name;
-          //return song;
-
-
         }
 
-        setInterval(requestSongName,5000);
+        setInterval(requestSongName,3000);
 
         var playlistReq={
           url: 'https://api.spotify.com/v1/me/playlists',
@@ -336,6 +325,7 @@ function callSlidesAPI(spotifyPlaylist){
             ]
         }
     });
+
 }
 }
 console.log('Listening on 8888');

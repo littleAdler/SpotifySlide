@@ -38,7 +38,7 @@
             <div class="wrapper">
                 <!-- Sidebar Holder -->
                 <div id="content">
-                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTq90LyDhvfGsScmsPGkfpSyp4PRcR4kolqEjCfc5URJJxlrFgG1E2kH3ZrJ-JAaTrn9MPv9Lhjhvre/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1364" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTq90LyDhvfGsScmsPGkfpSyp4PRcR4kolqEjCfc5URJJxlrFgG1E2kH3ZrJ-JAaTrn9MPv9Lhjhvre/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1366" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
                 </div>
 
@@ -107,12 +107,8 @@
         <dt >Duration</dt><dd>{{item.duration_ms}}</dd>
         <!-- <dt>Album Art</dt><dd><a href="{{item.album.images.0.url}}">{{item.album.images.0.url}}</a></dd>-->
       </dl>
-      <!--
-      <div id="myProgress">
-        <div id="myBar">10%</div>
-        <br>
-        <button onclick="move()">Click Me</button>
-      </div>-->
+
+
     </script>
 
 
@@ -193,8 +189,10 @@
             setInterval(currentSongName,3000);
             //setInterval(console.log("Set interval"),4000);
             //ajax call to get the current playback (returns the currently playing song name)
+            let holdSongName='';
             function currentSongName(){
               //console.log("Run currentSongName()");
+
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/player/currently-playing',
                 headers: {
@@ -205,9 +203,17 @@
                   decimalMinutes= response.item.duration_ms/(60*1000) - Math.floor(response.item.duration_ms/(60*1000));
                   seconds = Math.floor(decimalMinutes*60);
                   minutes = Math.floor(response.item.duration_ms/(60*1000));
-                  globalSongName = response.item.name;
 
-                  //handles the seconds display formating (ex. 3:05 vs 3:5 AND 3:12 vs 3:012)
+                if(holdSongName!==response.item.name){
+                    //refresh_iFrame;
+                    //console.log("refresh");
+                  }
+
+                  holdSongName = response.item.name;
+
+
+
+                  //handles the time display formating (ex. 3:05 vs 3:5 AND 3:12 vs 3:012)
                   if(seconds<10){
                     response.item.duration_ms=`${minutes}:0${seconds}`
                   }else{
@@ -307,32 +313,23 @@
 
     </script>
 
-    <script type="text/javascript">
 
-    /*function move() {
-      var elem = document.getElementById("myBar");
-      var width = 10;
-      var id = setInterval(frame, 1000);
-      function frame() {
-        if (width >= 100) {
-          clearInterval(id);
-        } else {
-          width++;
-          elem.style.width = width + '%';
-          elem.innerHTML = width * 1  + '%';
-        }
-      }
-    }*/
-
-    </script>
 
     <script id="SlidesAPI">
     function refresh_iFrame(){
     document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
     }
-    setInterval(refresh_iFrame,6000);
+    $(document).ready(function(){
 
+      setInterval(refresh_iFrame,6000);
+
+    });
     </script>
 
+    <script type="text/javascript">
+
+
+
+    </script>
   </body>
 </html>
