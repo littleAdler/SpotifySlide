@@ -22,10 +22,30 @@
   position: absolute;
   left: 0px;
   top:0px;
+  /*display: block;*/
+  /*z-index: 1;*/
 
 }
-#profilePic{
+#slideFrame.active{
+  /*display: none;*/
+  /*z-index: 1;*/
+}
 
+#slideFrame2{
+  position: absolute;
+  left: 0px;
+  top:0px;
+  /*display: none;*/
+  z-index: -1;
+
+}
+#slideFrame2.active{
+  /*display: block;*/
+  z-index: 2;
+}
+
+
+#profilePic{
   padding-left: 20px;
 }
 #albumArt{

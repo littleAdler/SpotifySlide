@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-
+    <script src="https://apis.google.com/js/api.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,15 +29,23 @@
   <body>
     <div class="container">
       <div id="login">
+
         <h1 id="login-welcome">Welcome To Slide!</h1>
         <p id="login-message">Start by logging in with your spotify acount</p>
-        <a href="/login" class="btn btn-outline-success">Log in with Spotify</a>
+        <a href="/login" id="spotloginbut" class="btn btn-outline-success disabled" role="button" aria-disabled="true">Log in with Spotify</a>
+        <button class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+
+        <!-- Test slides API call-->
+        <button onclick="execute()">execute</button>
+
       </div>
+      <!-- Display the website after the proper auth procedure-->
       <div id="loggedin">
 
             <div class="wrapper">
                 <!-- Sidebar Holder -->
                 <div id="content">
+
                   <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTq90LyDhvfGsScmsPGkfpSyp4PRcR4kolqEjCfc5URJJxlrFgG1E2kH3ZrJ-JAaTrn9MPv9Lhjhvre/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1366" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
                 </div>
@@ -45,7 +53,8 @@
                 <nav id="sidebar">
                     <div class="sidebar-header">
                         <h3>Logo</h3>
-
+                        <button z-index=4 class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+                        <button onclick="execute()">execute</button>
                     </div>
 
                     <ul id = "comps" class="list-unstyled components">
@@ -64,6 +73,56 @@
 
                 <!-- Page Content Holder -->
 
+
+                <script>
+                  /**
+                   * Sample JavaScript code for slides.presentations.get
+                   * See instructions for running APIs Explorer code samples locally:
+                   * https://developers.google.com/explorer-help/guides/code_samples#javascript
+                   */
+
+                  function authenticate() {
+                    return gapi.auth2.getAuthInstance()
+                        .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/presentations https://www.googleapis.com/auth/presentations.readonly"})
+                        .then(function() {
+                          console.log("Sign-in successful");
+                          document.getElementById("spotloginbut").classList.remove('disabled');
+
+                        },
+                              function(err) { console.error("Error signing in", err); });
+                  }
+                  function loadClient() {
+                    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/slides/v1/rest")
+                        .then(function() { console.log("GAPI client loaded for API"); },
+                              function(err) { console.error("Error loading GAPI client for API", err); });
+                  }
+                  // Make sure the client is loaded and sign-in is complete before calling this method.
+                  slideHold='';
+                    function execute() {
+                      console.log(gapi.client);
+                      return gapi.client.slides.presentations.get({
+                        "presentationId": "1F7t4uUsk8Hk8RzyHVp-2uoeiXZg-evsFttWHJqBnSDY"
+                      })
+                          .then(function(response) {
+                                  // Handle the results here (response.result has the parsed body).
+                                  console.log("Response", response);
+                                  console.log(JSON.parse(response.body).slides[0].objectId);
+                                  if(slideHold!==JSON.parse(response.body).slides[0].objectId){
+                                    document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
+                                    console.log("refresh");
+                                    slideHold=JSON.parse(response.body).slides[0].objectId;
+                                  }
+
+
+                                },
+                                function(err) { console.error("Execute error", err); });
+                    }
+
+                  gapi.load("client:auth2", function() {
+                    gapi.auth2.init({client_id: "218122630000-fquo9nr0b7ldh0d0dvb23k2hkiaq6rh1.apps.googleusercontent.com"});
+                  });
+                </script>
+
             </div>
 
         <!--
@@ -72,8 +131,6 @@
 
       </div>
     </div>
-
-
 
 
     <script id="user-profile-template" type="text/x-handlebars-template">
@@ -185,8 +242,10 @@
                   $('#loggedin').show();
                 }
             });
-
+            //loadClient();
             setInterval(currentSongName,3000);
+
+            //setInterval(execute,5000);
             //setInterval(console.log("Set interval"),4000);
             //ajax call to get the current playback (returns the currently playing song name)
             let holdSongName='';
@@ -204,13 +263,13 @@
                   seconds = Math.floor(decimalMinutes*60);
                   minutes = Math.floor(response.item.duration_ms/(60*1000));
 
+                  /*
                 if(holdSongName!==response.item.name){
-                    //refresh_iFrame;
-                    //console.log("refresh");
+                    document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
+                    console.log("refresh");
                   }
-
                   holdSongName = response.item.name;
-
+                  */
 
 
                   //handles the time display formating (ex. 3:05 vs 3:5 AND 3:12 vs 3:012)
@@ -226,10 +285,12 @@
 
                 }
             });
+
             return globalSongName;
             }
 
             /*
+
           $.ajax({
             url: 'https://api.spotify.com/v1/me/playlists',
             headers:{
@@ -314,22 +375,98 @@
     </script>
 
 
-
+<!--
     <script id="SlidesAPI">
-    function refresh_iFrame(){
-    document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
-    }
-    $(document).ready(function(){
 
-      setInterval(refresh_iFrame,6000);
+    function refresh_iFrame(){
+      //document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+''
+
+    //swap_iFrame;
+    console.log($('#slideFrame').css('z-index'));
+    console.log($('#slideFrame2').css('z-index'));
+    //console.log($('#slideFrame').css('z-index')==1);
+    if($('#slideFrame').css('z-index')==1 ){
+      console.log('inside if');
+      document.getElementById('slideFrame2').src = document.getElementById('slideFrame2').src+'';
+      focus_slideFrame2();
+
+
+    }else if($('#slideFrame2').css('z-index')==1){
+      console.log("inside else");
+      document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
+      focus_slideFrame();
+
+
+
+
+    }
+
+    }
+
+    function focus_slideFrame() {
+      document.getElementById('slideFrame').style.zIndex = 1;
+      document.getElementById('slideFrame2').style.zIndex = -1;
+
+    }
+    function focus_slideFrame2() {
+      document.getElementById('slideFrame').style.zIndex = -1;
+      document.getElementById('slideFrame2').style.zIndex = 1;
+
+    }
+
+    function swap_iFrame(){
+      $('#slideFrame').css('z-index',2);
+      $('#slideFrame2').css('z-index',1);
+    /*  $('#slideFrame').toggleClass('active');
+      $('#slideFrame2').toggleClass('active');
+      */
+    }
+    function swap_iFrame2(){
+      $('#slideFrame').css('z-index',1);
+      $('#slideFrame2').css('z-index',2);
+
+    }
+
+    $(document).ready(function(){
+      //$('#slideFrame').css("display","block");
+      //setInterval(refresh_iFrame,6000);
 
     });
     </script>
-
-    <script type="text/javascript">
-
+  -->
 
 
-    </script>
+<script>
+  /**
+   * Sample JavaScript code for slides.presentations.get
+   * See instructions for running APIs Explorer code samples locally:
+   * https://developers.google.com/explorer-help/guides/code_samples#javascript
+   */
+
+  function authenticate() {
+
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/presentations https://www.googleapis.com/auth/presentations.readonly"})
+        .then(function() {
+          console.log("Sign-in successful");
+          document.getElementById("spotloginbut").classList.remove('disabled');
+
+        },
+              function(err) { console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/slides/v1/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "218122630000-fquo9nr0b7ldh0d0dvb23k2hkiaq6rh1.apps.googleusercontent.com"});
+  });
+</script>
+
+
+
   </body>
 </html>

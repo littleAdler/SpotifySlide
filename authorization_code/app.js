@@ -41,6 +41,7 @@ app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
 
+
 app.get('/login', function(req, res) {
 
   var state = generateRandomString(16);
@@ -285,6 +286,7 @@ function callSlidesAPI(spotifyPlaylist){
 
 
     const slides = google.slides({version: 'v1', auth});
+    //console.log("Slides Info:" + JSON.stringify(slides));
     //let slideID=this.state.slide.toString();
     let slideID ='';
     //let sliden=slideName
