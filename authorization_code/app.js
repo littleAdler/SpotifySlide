@@ -111,10 +111,10 @@ app.get('/callback', function(req, res) {
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
-
+        let song_name='';
+        let holdSongName='';
         function requestSongName(){
-          let song_name='';
-          let holdSongName='';
+
           request.get(options2,function(err,res,body){
             console.log("Currently Playing: "+ body.item.name);
             song_name = body.item.name;
@@ -138,8 +138,9 @@ app.get('/callback', function(req, res) {
                     //console.log("Playlist: " + playlistArr[i] + " Total Items: "+response.items[i].tracks.total+" Song: " +JSON.parse(body).items[j].track.name);
 
                     //console.log(response2);
-                    if(JSON.parse(body).items[j].track.name===song_name){
+                    if(JSON.parse(body).items[j].track.name===song_name && holdSongName!==song_name){
                       console.log("Current Playlist: " + playlistArr[i]);
+                      holdSongName=song_name;
                       ///Call the Slides API in here (it will only run once b/c it only matches once)
                       callSlidesAPI(playlistArr[i]);
 

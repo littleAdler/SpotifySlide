@@ -54,6 +54,13 @@
                 <nav id="sideExpansion">
                   <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
 
+                  <form id="expansionForm">
+                    Google Slides Project ID:<br>
+                    <input type="text" id="gslidesId" name="slidesProjectId"><br>
+
+                  </form>
+
+
                 </nav>
 
 
@@ -61,7 +68,7 @@
                     <div class="sidebar-header">
                         <h3>Logo</h3>
 
-                        <button onclick="execute()">execute</button>
+                        <button onclick="setInterval(execute,5000)">execute</button>
                     </div>
 
                     <ul id = "comps" class="list-unstyled components">
@@ -94,6 +101,7 @@
                         .then(function() {
                           console.log("Sign-in successful");
                           document.getElementById("spotloginbut").classList.remove('disabled');
+                          $("#slideAuth").hide();
 
                         },
                               function(err) { console.error("Error signing in", err); });
@@ -107,8 +115,9 @@
                   slideHold='';
                     function execute() {
                       console.log(gapi.client);
+                      console.log(document.getElementById("gslidesId").value);
                       return gapi.client.slides.presentations.get({
-                        "presentationId": "1F7t4uUsk8Hk8RzyHVp-2uoeiXZg-evsFttWHJqBnSDY"
+                        "presentationId": document.getElementById("gslidesId").value
                       })
                           .then(function(response) {
                                   // Handle the results here (response.result has the parsed body).
@@ -397,7 +406,12 @@
         },1000)
         console.log("exit");
       });
+
+
+
+
     </script>
+
 <!--
     <script id="SlidesAPI">
 
@@ -457,39 +471,6 @@
     });
     </script>
   -->
-
-
-<script>
-  /**
-   * Sample JavaScript code for slides.presentations.get
-   * See instructions for running APIs Explorer code samples locally:
-   * https://developers.google.com/explorer-help/guides/code_samples#javascript
-   */
-
-  function authenticate() {
-
-    return gapi.auth2.getAuthInstance()
-        .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/presentations https://www.googleapis.com/auth/presentations.readonly"})
-        .then(function() {
-          console.log("Sign-in successful");
-          document.getElementById("spotloginbut").classList.remove('disabled');
-
-        },
-              function(err) { console.error("Error signing in", err); });
-  }
-  function loadClient() {
-    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/slides/v1/rest")
-        .then(function() { console.log("GAPI client loaded for API"); },
-              function(err) { console.error("Error loading GAPI client for API", err); });
-  }
-  // Make sure the client is loaded and sign-in is complete before calling this method.
-
-  gapi.load("client:auth2", function() {
-    gapi.auth2.init({client_id: "218122630000-fquo9nr0b7ldh0d0dvb23k2hkiaq6rh1.apps.googleusercontent.com"});
-  });
-</script>
-
-
 
   </body>
 </html>
