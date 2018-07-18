@@ -1,0 +1,21 @@
+#sideExpansion {
+  position: absolute;
+  left: -500px;
+  top:0px;
+  height: 768px;
+  width: 504px;
+  background-image: url("https://wallpaper-house.com/data/out/12/wallpaper2you_519936.jpg");
+  background-color: blue;
+  border-style: solid;
+  border-width: 5px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+
+}
+
+#slideAuth{
+  position: relative;
+  left: 152px;
+  top: 384px;
+}

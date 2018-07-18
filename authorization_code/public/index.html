@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="sideExpansion.css">
+
     <style type="text/css">
       #login, #loggedin {
         display: none;
@@ -49,11 +51,16 @@
                   <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTq90LyDhvfGsScmsPGkfpSyp4PRcR4kolqEjCfc5URJJxlrFgG1E2kH3ZrJ-JAaTrn9MPv9Lhjhvre/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1366" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
                 </div>
+                <nav id="sideExpansion">
+                  <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+
+                </nav>
+
 
                 <nav id="sidebar">
                     <div class="sidebar-header">
                         <h3>Logo</h3>
-                        <button z-index=4 class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+
                         <button onclick="execute()">execute</button>
                     </div>
 
@@ -374,7 +381,23 @@
 
     </script>
 
+    <script>
+      $("#sideExpansion").hover(
+        function(){
+        $("#sideExpansion").stop(true,false);
+        $("#sideExpansion").animate({
+          left: "0px"
+        },1000);
+        console.log("enter");
 
+      }, function(){
+        $("#sideExpansion").stop(true,false);
+        $("#sideExpansion").animate({
+          left: "-500px"
+        },1000)
+        console.log("exit");
+      });
+    </script>
 <!--
     <script id="SlidesAPI">
 
