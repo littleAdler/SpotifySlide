@@ -59,24 +59,27 @@
                     Google Slides Project ID:<br>
                     <input type="text" id="gslidesId" name="slidesProjectId"><br>
                     Playlist 1:<br>
-                    <input type="text" id="playlist1" name="firstPlaylist"><br>
+                    <input type="text" id="playlist1" name="firstPlaylist"><input type="text" id="slide1" name="firstSlide"><br>
                     Playlist 2:<br>
-                    <input type="text" id="playlist2" name="secondPlaylist"><br>
+                    <input type="text" id="playlist2" name="secondPlaylist"><input type="text" id="slide2" name="secondSlide"><br>
                     Playlist 3:<br>
-                    <input type="text" id="playlist3" name="thirdPlaylist"><br>
+                    <input type="text" id="playlist3" name="thirdPlaylist"><input type="text" id="slide3" name="thirdSlide"><br>
                     Playlist 4:<br>
-                    <input type="text" id="playlist4" name="fourthPlaylist"><br>
+                    <input type="text" id="playlist4" name="fourthPlaylist"><input type="text" id="slide4" name="fourthSlide"><br>
                     Playlist 5:<br>
-                    <input type="text" id="playlist5" name="fifthPlaylist"><br>
+                    <input type="text" id="playlist5" name="fifthPlaylist"><input type="text" id="slide5" name="fifthSlide"><br>
                     Playlist 6:<br>
-                    <input type="text" id="playlist6" name="sixthPlaylist"><br>
+                    <input type="text" id="playlist6" name="sixthPlaylist"><input type="text" id="slide6" name="sixthSlide"><br>
                     Playlist 7:<br>
-                    <input type="text" id="playlist7" name="seventhPlaylist"><br>
+                    <input type="text" id="playlist7" name="seventhPlaylist"><input type="text" id="slide7" name="seventhSlide"><br>
                     Playlist 8:<br>
-                    <input type="text" id="playlist8" name="eighthPlaylist"><br>
+                    <input type="text" id="playlist8" name="eighthPlaylist"><input type="text" id="slide8" name="eighthSlide"><br>
 
                   </form>
                   <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+                  <!--<button id="regenerateSlideOrder" onclick="generateSlideOrder()">Generate Slide Order</button> -->
+                  <div id="slideOrder">
+                  </div>
 
                 </nav>
 
@@ -113,6 +116,9 @@
                    * https://developers.google.com/explorer-help/guides/code_samples#javascript
                    */
 
+
+
+
                   function authenticate() {
                     return gapi.auth2.getAuthInstance()
                         .signIn({scope: "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/presentations https://www.googleapis.com/auth/presentations.readonly"})
@@ -120,6 +126,11 @@
                           console.log("Sign-in successful");
                           document.getElementById("spotloginbut").classList.remove('disabled');
                           $("#slideAuth").hide();
+
+                          //Generate Slide Order
+
+
+
 
                         },
                               function(err) { console.error("Error signing in", err); });
@@ -139,7 +150,7 @@
                       })
                           .then(function(response) {
                                   // Handle the results here (response.result has the parsed body).
-                                  //console.log("Response", response);
+                                  console.log("Response", response);
                                   console.log(JSON.parse(response.body).slides[0].objectId);
                                   if(slideHold!==JSON.parse(response.body).slides[0].objectId){
                                     document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
@@ -167,20 +178,22 @@
                     //let testSlide='';
                     if(spotifyPlaylist==='Update Test'){
                         slideID = 'p';
-                    }else if(spotifyPlaylist=== "Disco Waltz"){
-                        slideID = 'p1';
-                    }else if(spotifyPlaylist ==="Latin Hustle"){
-                        slideID = 'p2';
-                    }else if (spotifyPlaylist === "Fox Trot"){
-                        slideID = 'p4';
-                    }else if (spotifyPlaylist === "Rumba"){
-                        slideID = 'p5';
-                    }else if (spotifyPlaylist === "Chacha"){
-                        slideID = 'p6';
-                    }else if (spotifyPlaylist === "Jitterbug"){
-                        slideID = 'p7';
-                    }else if (spotifyPlaylist === "Tango"){
-                        slideID = 'p8';
+                    }else if(spotifyPlaylist=== document.getElementById("playlist1").value){
+                        slideID = document.getElementById("slide1").value;
+                    }else if(spotifyPlaylist ===document.getElementById("playlist2").value){
+                        slideID = document.getElementById("slide2").value;
+                    }else if (spotifyPlaylist === document.getElementById("playlist3").value){
+                        slideID = document.getElementById("slide3").value;
+                    }else if (spotifyPlaylist === document.getElementById("playlist4").value){
+                        slideID = document.getElementById("slide4").value;
+                    }else if (spotifyPlaylist === document.getElementById("playlist5").value){
+                        slideID = document.getElementById("slide5").value;
+                    }else if (spotifyPlaylist === document.getElementById("playlist6").value){
+                        slideID = document.getElementById("slide6").value;
+                    }else if (spotifyPlaylist === document.getElementById("playlist7").value){
+                        slideID = document.getElementById("slide7").value;
+                    }else if (spotifyPlaylist === document.getElementById("playlist8").value){
+                        slideID = document.getElementById("slide8").value;
                     }
 
                     return gapi.client.slides.presentations.batchUpdate({
@@ -247,9 +260,36 @@
         <dt >Duration</dt><dd>{{item.duration_ms}}</dd>
         <!-- <dt>Album Art</dt><dd><a href="{{item.album.images.0.url}}">{{item.album.images.0.url}}</a></dd>-->
       </dl>
+    </script>
 
+
+    <script id="slide-order-template" type="text/x-handlebars-template">
+      <h2 id="orderTitle">Slide Order</h2>
+      <dl>
+        <dd>
+             1. {{result.slides.0.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.0.objectId}})
+             2. {{result.slides.1.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.1.objectId}})
+             3. {{result.slides.2.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.2.objectId}})
+             4. {{result.slides.3.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.3.objectId}})
+             5. {{result.slides.4.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.4.objectId}})
+             6. {{result.slides.5.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.5.objectId}})
+             7. {{result.slides.6.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.6.objectId}})
+             8. {{result.slides.7.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.7.objectId}})
+             9. {{result.slides.8.pageElements.0.shape.text.textElements.1.textRun.content}}
+                ({{result.slides.8.objectId}})
+        </dd>
+      </dl>
 
     </script>
+
 
 
     <script id="oauth-template" type="text/x-handlebars-template">
@@ -269,6 +309,16 @@
 
     <script>
       (function() {
+        function generateSlideOrder(){
+          return gapi.client.slides.presentations.get({
+            "presentationId": document.getElementById("gslidesId").value
+          })
+           .then(function(response){
+              console.log(response);
+               slideOrderPlaceholder.innerHTML = slideOrderTemplate(response);
+           });
+        }
+        setInterval(generateSlideOrder,10000);
           let globalSongName='';
         /**
          * Obtains parameters from the hash of the URL
@@ -283,6 +333,11 @@
           }
           return hashParams;
         }
+
+        var slideOrderSource =document.getElementById("slide-order-template").innerHTML,
+            slideOrderTemplate = Handlebars.compile(slideOrderSource),
+            slideOrderPlaceholder = document.getElementById('slideOrder');
+
 
         var userProfileSource = document.getElementById('user-profile-template').innerHTML,
             userProfileTemplate = Handlebars.compile(userProfileSource),
