@@ -52,14 +52,31 @@
 
                 </div>
                 <nav id="sideExpansion">
-                  <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+
+
 
                   <form id="expansionForm">
                     Google Slides Project ID:<br>
                     <input type="text" id="gslidesId" name="slidesProjectId"><br>
+                    Playlist 1:<br>
+                    <input type="text" id="playlist1" name="firstPlaylist"><br>
+                    Playlist 2:<br>
+                    <input type="text" id="playlist2" name="secondPlaylist"><br>
+                    Playlist 3:<br>
+                    <input type="text" id="playlist3" name="thirdPlaylist"><br>
+                    Playlist 4:<br>
+                    <input type="text" id="playlist4" name="fourthPlaylist"><br>
+                    Playlist 5:<br>
+                    <input type="text" id="playlist5" name="fifthPlaylist"><br>
+                    Playlist 6:<br>
+                    <input type="text" id="playlist6" name="sixthPlaylist"><br>
+                    Playlist 7:<br>
+                    <input type="text" id="playlist7" name="seventhPlaylist"><br>
+                    Playlist 8:<br>
+                    <input type="text" id="playlist8" name="eighthPlaylist"><br>
 
                   </form>
-
+                  <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
 
                 </nav>
 
@@ -69,6 +86,7 @@
                         <h3>Logo</h3>
 
                         <button onclick="setInterval(execute,5000)">execute</button>
+                        <button onclick="updateSlidePosition()">slideUpdate</button>
                     </div>
 
                     <ul id = "comps" class="list-unstyled components">
@@ -114,14 +132,14 @@
                   // Make sure the client is loaded and sign-in is complete before calling this method.
                   slideHold='';
                     function execute() {
-                      console.log(gapi.client);
-                      console.log(document.getElementById("gslidesId").value);
+                      //console.log(gapi.client);
+                      //console.log(document.getElementById("gslidesId").value);
                       return gapi.client.slides.presentations.get({
                         "presentationId": document.getElementById("gslidesId").value
                       })
                           .then(function(response) {
                                   // Handle the results here (response.result has the parsed body).
-                                  console.log("Response", response);
+                                  //console.log("Response", response);
                                   console.log(JSON.parse(response.body).slides[0].objectId);
                                   if(slideHold!==JSON.parse(response.body).slides[0].objectId){
                                     document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
@@ -137,6 +155,55 @@
                   gapi.load("client:auth2", function() {
                     gapi.auth2.init({client_id: "218122630000-fquo9nr0b7ldh0d0dvb23k2hkiaq6rh1.apps.googleusercontent.com"});
                   });
+
+
+                  function updateSlidePosition(spotifyPlaylist){
+                    console.log("update");
+                    let slideID ='';
+                    //let spotifyPlaylist = 'Disco Waltz';
+                    //let sliden=slideName
+                    //let spotifyPlaylist="Update Test"
+                    //console.log(testSlide);
+                    //let testSlide='';
+                    if(spotifyPlaylist==='Update Test'){
+                        slideID = 'p';
+                    }else if(spotifyPlaylist=== "Disco Waltz"){
+                        slideID = 'p1';
+                    }else if(spotifyPlaylist ==="Latin Hustle"){
+                        slideID = 'p2';
+                    }else if (spotifyPlaylist === "Fox Trot"){
+                        slideID = 'p4';
+                    }else if (spotifyPlaylist === "Rumba"){
+                        slideID = 'p5';
+                    }else if (spotifyPlaylist === "Chacha"){
+                        slideID = 'p6';
+                    }else if (spotifyPlaylist === "Jitterbug"){
+                        slideID = 'p7';
+                    }else if (spotifyPlaylist === "Tango"){
+                        slideID = 'p8';
+                    }
+
+                    return gapi.client.slides.presentations.batchUpdate({
+                      presentationId: '1F7t4uUsk8Hk8RzyHVp-2uoeiXZg-evsFttWHJqBnSDY',
+                      "access_token": 'ya29.Glu6BQgGG4k0CNyFP-LmuUQzXXxkbc5KQrIaUXQsmzWtlZ5mZqosm3zUe2PVHH-RgLoZS3yAPLUad1KN394EPjuIYZM4iCLB2qMAC7xvAI3ZFoztVwY3gsr7ziOX',
+                      "resource": {
+                          "requests": [
+                              {
+                                  "updateSlidesPosition": {
+                                      "slideObjectIds": [
+                                          slideID
+                                      ],
+                                      "insertionIndex": 0
+                                  }
+                              }
+                          ]
+                      }
+                    })
+                    .then(function(response){
+                      //console.log(response);
+                    });
+                  }
+
                 </script>
 
             </div>
@@ -258,11 +325,11 @@
                   $('#loggedin').show();
                 }
             });
-            //loadClient();
-            setInterval(currentSongName,3000);
 
-            //setInterval(execute,5000);
-            //setInterval(console.log("Set interval"),4000);
+
+
+
+            setInterval(currentSongName,3000);
             //ajax call to get the current playback (returns the currently playing song name)
             let holdSongName='';
             function currentSongName(){
@@ -279,14 +346,6 @@
                   seconds = Math.floor(decimalMinutes*60);
                   minutes = Math.floor(response.item.duration_ms/(60*1000));
 
-                  /*
-                if(holdSongName!==response.item.name){
-                    document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
-                    console.log("refresh");
-                  }
-                  holdSongName = response.item.name;
-                  */
-
 
                   //handles the time display formating (ex. 3:05 vs 3:5 AND 3:12 vs 3:012)
                   if(seconds<10){
@@ -297,7 +356,50 @@
 
                   //load the object into the handlbars template
                   playbackPlaceholder.innerHTML = playbackTemplate(response);
+                  let song_name=response.item.name;
 
+
+
+                $.ajax({
+                  url: 'https://api.spotify.com/v1/me/playlists',
+                  headers:{
+                    'Authorization':'Bearer '+ access_token
+                  },
+                  success: function(response){
+                    let playlistArr=[];
+                    let totalTracks=[];
+                    //console.log(response.items[0].name)
+                    let stop=false;
+                    for(let i=0 ; i<8 ; i++){
+                      //console.log(globalSongName);
+                    playlistArr[i]=response.items[i].name;
+                    totalTracks[i]=response.items[i].tracks.total;
+
+
+                        $.ajax({
+                          url: response.items[i].tracks.href,
+                          headers:{
+                            'Authorization':'Bearer '+ access_token
+                          },
+                          success: function(response){
+                            //console.log("Last Track:"+response.items[totalTracks].track.name)
+                            for(let j=0; j<totalTracks[i];j++){
+                            if(response.items[j].track.name === song_name && holdSongName!==song_name){
+                              console.log("Current Playlist: "+playlistArr[i]);
+                              holdSongName=song_name;
+                              updateSlidePosition(playlistArr[i]);
+
+                            }
+                          }
+
+                       }
+                        });
+
+                   }
+
+                   console.log(playlistArr);
+                }
+                });
 
                 }
             });
@@ -305,58 +407,8 @@
             return globalSongName;
             }
 
-            /*
 
-          $.ajax({
-            url: 'https://api.spotify.com/v1/me/playlists',
-            headers:{
-              'Authorization':'Bearer '+ access_token
-            },
-            success: function(response){
-              let playlistArr=[];
-              let songArr = [];
-              let combArr =[];
-              //console.log(response.items[0].name)
-              let stop=false;
-              for(let i=0 ; i<3 ; i++){
-                //console.log(globalSongName);
-                playlistArr[i]=response.items[i].name;
 
-                for(let j=0; j<response.items[i].tracks.total;j++){
-                  $.ajax({
-                    url: response.items[i].tracks.href,
-                    headers:{
-                      'Authorization':'Bearer '+ access_token
-                    },
-                    success: function(response){
-
-                      if(response.items[j].track.name === currentSongName()){
-                        console.log("Current Playlist: "+playlistArr[i]);
-                        stop=true;
-                      }else{
-                        //console.log(currentSongName());
-                        //console.log("¯\\_(ツ)_/¯");
-                        stop=false;
-                      }
-                      //console.log(response);
-                    }
-                  });
-                  /*
-                  console.log("stop: " + stop);
-                  if(stop===true){
-                    break;
-                  }*/
-              //  }
-                /*
-                if(stop===true){
-                  break;
-                }*/
-
-            //  }
-
-          //    console.log(playlistArr);
-        //    }
-        //  });
 
 
 
@@ -397,14 +449,14 @@
         $("#sideExpansion").animate({
           left: "0px"
         },1000);
-        console.log("enter");
+
 
       }, function(){
         $("#sideExpansion").stop(true,false);
         $("#sideExpansion").animate({
           left: "-500px"
         },1000)
-        console.log("exit");
+
       });
 
 

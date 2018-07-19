@@ -142,6 +142,7 @@ app.get('/callback', function(req, res) {
                       console.log("Current Playlist: " + playlistArr[i]);
                       holdSongName=song_name;
                       ///Call the Slides API in here (it will only run once b/c it only matches once)
+
                       callSlidesAPI(playlistArr[i]);
 
                     }
@@ -155,7 +156,7 @@ app.get('/callback', function(req, res) {
           });
         }
 
-        setInterval(requestSongName,3000);
+      //  setInterval(requestSongName,3000);
 
         var playlistReq={
           url: 'https://api.spotify.com/v1/me/playlists',
@@ -296,7 +297,7 @@ function callSlidesAPI(spotifyPlaylist){
     //let testSlide='';
     if(spotifyPlaylist==='Update Test'){
         slideID = 'p';
-    }else if(spotifyPlaylist==='Disco Waltz'){
+    }else if(spotifyPlaylist=== "Disco Waltz"){
         slideID = 'p1';
     }else if(spotifyPlaylist ==="Latin Hustle"){
         slideID = 'p2';
