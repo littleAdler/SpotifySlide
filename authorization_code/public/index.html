@@ -2,6 +2,10 @@
 <html>
   <head>
     <script src="https://apis.google.com/js/api.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +42,7 @@
         <button class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
 
         <!-- Test slides API call-->
-        <button onclick="execute()">execute</button>
+        <button class="btn btn-outline-success" onclick="execute()">Run</button>
 
       </div>
       <!-- Display the website after the proper auth procedure-->
@@ -53,29 +57,84 @@
                 </div>
                 <nav id="sideExpansion">
 
+                  <br>
+                  Google Slides Project ID:<br>
+                  <input type="text" id="gslidesId" name="slidesProjectId"><br>
+                  <br>
+
+                  <div id="currentSelectionBox">
+
 
 
                   <form id="expansionForm">
-                    Google Slides Project ID:<br>
-                    <input type="text" id="gslidesId" name="slidesProjectId"><br>
-                    Playlist 1:<br>
-                    <input type="text" id="playlist1" name="firstPlaylist"><input type="text" id="slide1" name="firstSlide"><br>
-                    Playlist 2:<br>
+
+
+                    <!-- Playlist 1:<br> -->
+
+                    <div class="firstSlot">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                        </div>
+                        <select class="custom-select" id="playlist1">
+                          <option selected>Choose...</option>
+                          <option>Disco Waltz</option>
+                          <option>Latin Hustle</option>
+                          <option>Fox Trot</option>
+                        </select>
+                        <select class="custom-select" id="slide1">
+                          <option selected>Choose...</option>
+                          <option>p1</option>
+                          <option>p2</option>
+                          <option>p4</option>
+                        </select>
+                      </div>
+
+                    </div>
+
+                    <!-- Playlist 2:<br> -->
+                    <div class="secondSlot">
                     <input type="text" id="playlist2" name="secondPlaylist"><input type="text" id="slide2" name="secondSlide"><br>
-                    Playlist 3:<br>
+                    </div>
+
+                    <!-- Playlist 3:<br> -->
+                    <div class="thirdSlot">
                     <input type="text" id="playlist3" name="thirdPlaylist"><input type="text" id="slide3" name="thirdSlide"><br>
-                    Playlist 4:<br>
+                    </div>
+
+                    <!-- Playlist 4:<br> -->
+                    <div class="fourthSlot">
                     <input type="text" id="playlist4" name="fourthPlaylist"><input type="text" id="slide4" name="fourthSlide"><br>
-                    Playlist 5:<br>
+                    </div>
+
+                    <!--- Playlist 5:<br> -->
+                    <div class="fifthSlot">
                     <input type="text" id="playlist5" name="fifthPlaylist"><input type="text" id="slide5" name="fifthSlide"><br>
-                    Playlist 6:<br>
+                    </div>
+
+
+                    <!-- Playlist 6:<br> -->
+                    <div class="sixthSlot">
                     <input type="text" id="playlist6" name="sixthPlaylist"><input type="text" id="slide6" name="sixthSlide"><br>
-                    Playlist 7:<br>
+                    </div>
+
+
+                    <!-- Playlist 7:<br> -->
+                    <div class="seventhSlot">
                     <input type="text" id="playlist7" name="seventhPlaylist"><input type="text" id="slide7" name="seventhSlide"><br>
-                    Playlist 8:<br>
+                    </div>
+
+                    <!-- Playlist 8:<br> -->
+                    <div class="eighthSlot">
                     <input type="text" id="playlist8" name="eighthPlaylist"><input type="text" id="slide8" name="eighthSlide"><br>
+                    </div>
 
                   </form>
+                  </div>
+
+                  <br>
+                  <br>
+                  <br>
                   <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
                   <!--<button id="regenerateSlideOrder" onclick="generateSlideOrder()">Generate Slide Order</button> -->
                   <div id="slideOrder">
@@ -86,10 +145,11 @@
 
                 <nav id="sidebar">
                     <div class="sidebar-header">
-                        <h3>Logo</h3>
+                        <!-- <h3>Logo</h3> -->
+                        <img id="logo" src="logo/Logo_v1_00000.jpg"></img>
 
-                        <button onclick="setInterval(execute,5000)">execute</button>
-                        <button onclick="updateSlidePosition()">slideUpdate</button>
+                        <button class="btn btn-outline-success" onclick="setInterval(execute,5000)">Run</button>
+                      <!--  <button onclick="updateSlidePosition()">slideUpdate</button> -->
                     </div>
 
                     <ul id = "comps" class="list-unstyled components">
@@ -143,6 +203,7 @@
                   // Make sure the client is loaded and sign-in is complete before calling this method.
                   slideHold='';
                     function execute() {
+                      //console.log("Slide:"+ document.getElementById("slide1").value);
                       //console.log(gapi.client);
                       //console.log(document.getElementById("gslidesId").value);
                       return gapi.client.slides.presentations.get({
@@ -150,8 +211,8 @@
                       })
                           .then(function(response) {
                                   // Handle the results here (response.result has the parsed body).
-                                  console.log("Response", response);
-                                  console.log(JSON.parse(response.body).slides[0].objectId);
+                                  //console.log("Response", response);
+                                  //console.log(JSON.parse(response.body).slides[0].objectId);
                                   if(slideHold!==JSON.parse(response.body).slides[0].objectId){
                                     document.getElementById('slideFrame').src = document.getElementById('slideFrame').src+'';
                                     console.log("refresh");
@@ -167,9 +228,18 @@
                     gapi.auth2.init({client_id: "218122630000-fquo9nr0b7ldh0d0dvb23k2hkiaq6rh1.apps.googleusercontent.com"});
                   });
 
+                  function classSwap(holdClass){
+                    $('.currentPlaySlot').switchClass("currentPlaySlot",`${holdClass}`,1000);
+
+
+                  }
+
+                  let holdClass="";
 
                   function updateSlidePosition(spotifyPlaylist){
                     console.log("update");
+                    //console.log("Slide: "+document.getElementById("slide1").value);
+                    //console.log("Playlist: "+document.getElementById("playlist1").value);
                     let slideID ='';
                     //let spotifyPlaylist = 'Disco Waltz';
                     //let sliden=slideName
@@ -179,21 +249,73 @@
                     if(spotifyPlaylist==='Update Test'){
                         slideID = 'p';
                     }else if(spotifyPlaylist=== document.getElementById("playlist1").value){
-                        slideID = document.getElementById("slide1").value;
+                        //slideID = document.getElementById("slide1").value;
+                        slideID =document.getElementById("slide1").value;
+
+                        $('.firstSlot').switchClass("firstSlot","currentPlaySlot",1000);
+                        if(holdClass!=="firstSlot"){
+                          classSwap(holdClass);
+                        }
+                        holdClass="firstSlot";
+                        //.then(classSwap([2,3,4,5,6,7,8]));
+
+                        //$('.firstSlot').removeClass("firstSlot").addClass("currentPlaySlot");
                     }else if(spotifyPlaylist ===document.getElementById("playlist2").value){
                         slideID = document.getElementById("slide2").value;
+                        if(holdClass!=="secondSlot"){
+                        $('.secondSlot').switchClass("secondSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="secondSlot";
+
+
                     }else if (spotifyPlaylist === document.getElementById("playlist3").value){
                         slideID = document.getElementById("slide3").value;
+                        if(holdClass!=="thirdSlot"){
+                        $('.thirdSlot').switchClass("thirdSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="thirdSlot";
+
                     }else if (spotifyPlaylist === document.getElementById("playlist4").value){
                         slideID = document.getElementById("slide4").value;
+                        if(holdClass!=="fourthSlot"){
+                        $('.fourthSlot').switchClass("fourthSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="fourthSlot";
+
                     }else if (spotifyPlaylist === document.getElementById("playlist5").value){
                         slideID = document.getElementById("slide5").value;
+                        if(holdClass!=="fifthSlot"){
+                        $('.fifthSlot').switchClass("fifthSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="fifthSlot";
+
                     }else if (spotifyPlaylist === document.getElementById("playlist6").value){
                         slideID = document.getElementById("slide6").value;
+                        if(holdClass!=="sixthSlot"){
+                        $('.sixthSlot').switchClass("sixthSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="fourthSlot";
+
                     }else if (spotifyPlaylist === document.getElementById("playlist7").value){
                         slideID = document.getElementById("slide7").value;
+                        if(holdClass!=="seventhSlot"){
+                        $('.seventhSlot').switchClass("seventhSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="seventhSlot";
+
                     }else if (spotifyPlaylist === document.getElementById("playlist8").value){
                         slideID = document.getElementById("slide8").value;
+                        if(holdClass!=="eighthSlot"){
+                        $('.eighthSlot').switchClass("eighthSlot","currentPlaySlot",1000);
+                        classSwap(holdClass);
+                        }
+                        holdClass="eighthSlot";
                     }
 
                     return gapi.client.slides.presentations.batchUpdate({
@@ -303,10 +425,10 @@
       -->
       </dl>
     </script>
-
+<!--
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+-->
     <script>
       (function() {
         function generateSlideOrder(){
@@ -314,7 +436,7 @@
             "presentationId": document.getElementById("gslidesId").value
           })
            .then(function(response){
-              console.log(response);
+              //console.log(response);
                slideOrderPlaceholder.innerHTML = slideOrderTemplate(response);
            });
         }
@@ -396,6 +518,7 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response){
+                  //console.log(response);
                   //Convert time into minutes and seconds
                   decimalMinutes= response.item.duration_ms/(60*1000) - Math.floor(response.item.duration_ms/(60*1000));
                   seconds = Math.floor(decimalMinutes*60);
@@ -452,7 +575,7 @@
 
                    }
 
-                   console.log(playlistArr);
+                   //console.log(playlistArr);
                 }
                 });
 

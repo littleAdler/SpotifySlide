@@ -63,3 +63,9 @@
   position: relative;
   left: 50px;
 }
+
+#logo{
+  width: 50%;
+  length: 50%;
+  opacity: 0.8;
+}
