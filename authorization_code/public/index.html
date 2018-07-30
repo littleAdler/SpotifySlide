@@ -1,4 +1,4 @@
-slot1<!doctype html>
+<!doctype html>
 <html>
   <head>
     <script src="https://apis.google.com/js/api.js"></script>
@@ -11,7 +11,7 @@ slot1<!doctype html>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style_side.css">
 
-    <title>SpotifySlide 2.0</title>
+    <title>SpotifySlide</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyI-X6qZTO1bDt5K8PWTOM__9xtvuDjeJ0rKJRWTjzFxQgGJ-I">
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -59,7 +59,7 @@ slot1<!doctype html>
 
                   <br>
                   Google Slides Project ID:<br>
-                  <input type="text" id="gslidesId" name="slidesProjectId"><br>
+                  <input class="input-group-text" type="text" id="gslidesId" name="slidesProjectId"><br>
                   <br>
 
                   <div id="currentSelectionBox">
@@ -69,81 +69,24 @@ slot1<!doctype html>
                   <form id="expansionForm">
 
 
-                    <!-- Playlist 1:<br>
-                    <
+              <!-- Slot Template Reference
+
                     <div class="slot1">
-                      <div class="input-group mb-3">
-                      -->
-                        <!--
-                        <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                        </div>
-                      -->
-                        <!--
-                        <select class="custom-select" id="playlist1">
-                          <option selected>Choose...</option>
-                          <option>Disco Waltz</option>
-                          <option>Latin Hustle</option>
-                          <option>Fox Trot</option>
-                        </select>
-                      -->
-                        <div id="selection-box">
-                        </div>
-                        <!--
-                        <select class="custom-select" id="slide1">
-                          <option selected>Choose...</option>
-                          <div id ="selections">
-                          </div>
+                    <div class="input-group mb-3">
 
-                          <option>p1</option>
+                    <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                  </div>
 
-                        </select>
-                        -->
-                        <!--
-                      </div>
-                    </div>
-                  -->
+                  <select class="custom-select" id="playlist1">
+                  <option selected>Choose...</option>
+                  <option>Disco Waltz</option>
+                  <option>Latin Hustle</option>
+                  <option>Fox Trot</option>
+                </select>
+              -->
 
-
-
-
-                    <!-- Playlist 2:<br> -->
-                    <div class="secondSlot">
-                    <input type="text" id="playlist2" name="secondPlaylist"><input type="text" id="slide2" name="secondSlide"><br>
-                    </div>
-
-                    <!-- Playlist 3:<br> -->
-                    <div class="thirdSlot">
-                    <input type="text" id="playlist3" name="thirdPlaylist"><input type="text" id="slide3" name="thirdSlide"><br>
-                    </div>
-
-                    <!-- Playlist 4:<br> -->
-                    <div class="fourthSlot">
-                    <input type="text" id="playlist4" name="fourthPlaylist"><input type="text" id="slide4" name="fourthSlide"><br>
-                    </div>
-
-                    <!--- Playlist 5:<br> -->
-                    <div class="fifthSlot">
-                    <input type="text" id="playlist5" name="fifthPlaylist"><input type="text" id="slide5" name="fifthSlide"><br>
-                    </div>
-
-
-                    <!-- Playlist 6:<br> -->
-                    <div class="sixthSlot">
-                    <input type="text" id="playlist6" name="sixthPlaylist"><input type="text" id="slide6" name="sixthSlide"><br>
-                    </div>
-
-
-                    <!-- Playlist 7:<br> -->
-                    <div class="seventhSlot">
-                    <input type="text" id="playlist7" name="seventhPlaylist"><input type="text" id="slide7" name="seventhSlide"><br>
-                    </div>
-
-                    <!-- Playlist 8:<br> -->
-                    <div class="eighthSlot">
-                    <input type="text" id="playlist8" name="eighthPlaylist"><input type="text" id="slide8" name="eighthSlide"><br>
-                    </div>
-
+                  <button id="dropDownbtn" class="btn btn-outline-info" onclick="addSelect('expansionForm')">Add Dropdown</button>
                   </form>
                   </div>
 
@@ -151,11 +94,12 @@ slot1<!doctype html>
                   <br>
                   <br>
                   <button id="slideAuth" class="btn btn-outline-warning" onclick="authenticate().then(loadClient)">authorize slides</button>
+
                   <!--<button id="regenerateSlideOrder" onclick="generateSlideOrder()">Generate Slide Order</button> -->
                   <div id="slideOrder">
                   </div>
-                  <button class="btn btn-outline-info" onclick="addSelect('expansionForm')">Add Dropdown</button>
-
+                  <!-- <button class="btn btn-outline-info" onclick="addSelect('expansionForm')">Add Dropdown</button> -->
+                  <button id="runBtn" class="btn btn-outline-success" onclick="setInterval(execute,5000)">Run</button>
                 </nav>
 
 
@@ -164,7 +108,7 @@ slot1<!doctype html>
                         <!-- <h3>Logo</h3> -->
                         <img id="logo" src="logo/Logo_v1_00000.jpg"></img>
 
-                        <button class="btn btn-outline-success" onclick="setInterval(execute,5000)">Run</button>
+
                       <!--  <button onclick="updateSlidePosition()">slideUpdate</button> -->
                     </div>
 
@@ -242,7 +186,9 @@ slot1<!doctype html>
                               });
                     }
 
+                    let r=0;
                     function addSelect(divname) {
+                      r++;
                       //Call for google slide ids
                       return gapi.client.slides.presentations.get({
                         "presentationId": document.getElementById("gslidesId").value
@@ -253,10 +199,15 @@ slot1<!doctype html>
                         var outerDiv1=document.createElement('div');
                         var outerDiv2=document.createElement('div');
 
-                        outerDiv1.setAttribute("class","slot1");
+                        //outerDiv1.innerHTML =".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 30px;}";
+                        var style = document.createElement('style');
+                        style.type = 'text/css';
+                        style.innerHTML = ".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 30px;}";
+                        outerDiv1.appendChild(style);
+                        outerDiv1.setAttribute("class","slot"+r);
                         outerDiv2.setAttribute("class","input-group mb-3");
 
-                        newDiv.setAttribute("id","slideSlot1");
+                        newDiv.setAttribute("id","slideSlot"+r);
                         newDiv.setAttribute("class","custom-select");
                         var html = '', i;
 
@@ -300,7 +251,7 @@ slot1<!doctype html>
                             let totalTracks=[];
 
                             var newDiv2 = document.createElement('select');
-                            newDiv2.setAttribute("id","playlistSlot1");
+                            newDiv2.setAttribute("id","playlistSlot"+r);
                             newDiv2.setAttribute("class","custom-select");
 
                             var html2='', i;
@@ -310,7 +261,7 @@ slot1<!doctype html>
                             }
                             newDiv2.innerHTML=html2;
                             outerDiv2.innerHTML+=newDiv2.outerHTML;
-                            outerDiv1.innerHTML=outerDiv2.outerHTML;
+                            outerDiv1.innerHTML+=outerDiv2.outerHTML;
 
                             document.getElementById(divname).appendChild(outerDiv1);
                             //console.log(response.items[0].name)
@@ -349,7 +300,23 @@ slot1<!doctype html>
                     //let spotifyPlaylist="Update Test"
                     //console.log(testSlide);
                     //let testSlide='';
-                    console.log("Playlist Selected: "+document.getElementById("playlistSlot1").value);
+                    //console.log("Playlist Selected: "+document.getElementById("playlistSlot1").value);
+
+                    for(let k=1; k<=r; k++){
+                      if(document.getElementById(`playlistSlot${k}`).value!==null && spotifyPlaylist=== document.getElementById(`playlistSlot${k}`).value){
+                          //slideID = document.getElementById("slide1").value;
+                          slideID =document.getElementById(`slideSlot${k}`).value;
+                          console.log("Slide ID: "+document.getElementById(`slideSlot${k}`).value);
+
+                          if(holdClass!==`slot${k}`){
+                            $(`.slot${k}`).switchClass(`slot${k}`,"currentPlaySlot",1000);
+                            classSwap(holdClass);
+                          }
+                          holdClass=`slot${k}`;
+                      }
+                    }
+
+                    /*
                     if(spotifyPlaylist==='Update Test'){
                         slideID = 'p';
 
@@ -357,7 +324,6 @@ slot1<!doctype html>
                         //slideID = document.getElementById("slide1").value;
                         slideID =document.getElementById("slideSlot1").value;
                         console.log("Slide ID: "+document.getElementById("slideSlot1").value);
-
                         $('.slot1').switchClass("slot1","currentPlaySlot",1000);
                         if(holdClass!=="slot1"){
                           classSwap(holdClass);
@@ -366,13 +332,13 @@ slot1<!doctype html>
                         //.then(classSwap([2,3,4,5,6,7,8]));
 
                         //$('.slot1').removeClass("firstSlot").addClass("currentPlaySlot");
-                    }else if(spotifyPlaylist ===document.getElementById("playlist2").value){
-                        slideID = document.getElementById("slide2").value;
-                        if(holdClass!=="secondSlot"){
-                        $('.secondSlot').switchClass("secondSlot","currentPlaySlot",1000);
+                    }else if(spotifyPlaylist ===document.getElementById("playlistSlot2").value){
+                        slideID = document.getElementById("slideSlot2").value;
+                        if(holdClass!=="slot2"){
+                        $('.slot2').switchClass("slot2","currentPlaySlot",1000);
                         classSwap(holdClass);
                         }
-                        holdClass="secondSlot";
+                        holdClass="slot2";
 
 
                     }else if (spotifyPlaylist === document.getElementById("playlist3").value){
@@ -423,6 +389,7 @@ slot1<!doctype html>
                         }
                         holdClass="eighthSlot";
                     }
+                    */
 
                     return gapi.client.slides.presentations.batchUpdate({
                       presentationId: '1F7t4uUsk8Hk8RzyHVp-2uoeiXZg-evsFttWHJqBnSDY',
@@ -492,6 +459,7 @@ slot1<!doctype html>
 
 
     <script id="slide-order-template" type="text/x-handlebars-template">
+      <!--
       <h2 id="orderTitle">Slide Order</h2>
       <dl>
         <dd>
@@ -515,7 +483,7 @@ slot1<!doctype html>
                 ({{result.slides.8.objectId}})
         </dd>
       </dl>
-
+    -->
     </script>
 
 

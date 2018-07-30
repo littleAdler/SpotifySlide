@@ -32,6 +32,17 @@
   width:400px
 }
 
+#dropDownbtn{
+  position: relative;
+  left: 78px;
+  top: 15px;
+}
+
+#runBtn{
+  position: relative;
+  left: 100px;
+  top: 413px;
+}
 
 #currentSelectionBox{
     position: absolute;
@@ -52,17 +63,19 @@
   top:-55px;
 }
 
+/*
 .slot1{
   position: relative;
   padding-left: -10px;
   padding-top: 30px;
 
 }
-.secondSlot{
+.slot2{
   position: relative;
   padding-left: -10px;
   padding-top: 30px;
 }
+*/
 .thirdSlot{
   position: relative;
   padding-left: -10px;
