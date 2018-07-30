@@ -52,7 +52,7 @@
                 <!-- Sidebar Holder -->
                 <div id="content">
 
-                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTq90LyDhvfGsScmsPGkfpSyp4PRcR4kolqEjCfc5URJJxlrFgG1E2kH3ZrJ-JAaTrn9MPv9Lhjhvre/embed?start=false&loop=false&delayms=3000" id="slideFrame" frameborder="0" width="1366" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                  <iframe src="" id="slideFrame" frameborder="0" width="1366" height="768" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
                 </div>
                 <nav id="sideExpansion">
@@ -60,6 +60,10 @@
                   <br>
                   Google Slides Project ID:<br>
                   <input class="input-group-text" type="text" id="gslidesId" name="slidesProjectId"><br>
+                  Iframe:<br>
+                  <input class="input-group-text" type="text" id="gslidesIFrame" name="slidesIframe"><br>
+
+
                   <br>
 
                   <div id="currentSelectionBox">
@@ -146,6 +150,7 @@
                           console.log("Sign-in successful");
                           document.getElementById("spotloginbut").classList.remove('disabled');
                           $("#slideAuth").hide();
+                          document.getElementById("slideFrame").src=document.getElementById("gslidesIFrame").value;
 
                           //Generate Slide Order
 
@@ -202,7 +207,7 @@
                         //outerDiv1.innerHTML =".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 30px;}";
                         var style = document.createElement('style');
                         style.type = 'text/css';
-                        style.innerHTML = ".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 30px;}";
+                        style.innerHTML = ".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 10px;}";
                         outerDiv1.appendChild(style);
                         outerDiv1.setAttribute("class","slot"+r);
                         outerDiv2.setAttribute("class","input-group mb-3");
