@@ -207,7 +207,7 @@
                         //outerDiv1.innerHTML =".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 30px;}";
                         var style = document.createElement('style');
                         style.type = 'text/css';
-                        style.innerHTML = ".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 10px;}";
+                        style.innerHTML = ".slot"+r+" {  position: relative; padding-left: -10px; padding-top: 4px;}";
                         outerDiv1.appendChild(style);
                         outerDiv1.setAttribute("class","slot"+r);
                         outerDiv2.setAttribute("class","input-group mb-3");
@@ -308,6 +308,7 @@
                     //console.log("Playlist Selected: "+document.getElementById("playlistSlot1").value);
 
                     for(let k=1; k<=r; k++){
+                      console.log("Playlist: "+document.getElementById(`playlistSlot${k}`).value)
                       if(document.getElementById(`playlistSlot${k}`).value!==null && spotifyPlaylist=== document.getElementById(`playlistSlot${k}`).value){
                           //slideID = document.getElementById("slide1").value;
                           slideID =document.getElementById(`slideSlot${k}`).value;
